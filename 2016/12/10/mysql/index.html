@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#fff">
+
+
+
+
+
+  <meta name="keywords" content="mysql," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="annkee" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql">
+<meta property="og:url" content="https://github.com/annkee/2016/12/10/mysql/index.html">
+<meta property="og:site_name" content="annkee">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://blog.annkee.top/images/mysql.jpg">
+<meta property="og:updated_time" content="2019-07-08T10:38:12.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql">
+<meta name="twitter:image" content="https://blog.annkee.top/images/mysql.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/annkee/2016/12/10/mysql/"/>
+
+
+
+
+
+  <title>mysql | annkee</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">annkee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/annkee/2016/12/10/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="annkee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="annkee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mysql</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T00:00:00+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016/12/10/mysql/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2016/12/10/mysql/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2016/12/10/mysql/" class="leancloud_visitors" data-flag-title="mysql">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1,752
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/mysql.jpg" alt="数据存储" style="width: 100%"></p>
+<a id="more"></a>
+<h1 id="mysql的总结的练习题"><a href="#mysql的总结的练习题" class="headerlink" title="mysql的总结的练习题"></a>mysql的总结的练习题</h1><h2 id="命令行登陆MySQL"><a href="#命令行登陆MySQL" class="headerlink" title="命令行登陆MySQL"></a>命令行登陆MySQL</h2><h3 id="在windows系统‘运行’一栏中输入"><a href="#在windows系统‘运行’一栏中输入" class="headerlink" title="在windows系统‘运行’一栏中输入"></a>在windows系统‘运行’一栏中输入</h3><pre><code>mysql -uroot -p123456 test 
+</code></pre><p>就可以直接进入登陆到MySQL服务器test数据库</p>
+<h3 id="执行MySQL-dump数据文件，进入windows-cmd命令界面"><a href="#执行MySQL-dump数据文件，进入windows-cmd命令界面" class="headerlink" title="执行MySQL dump数据文件，进入windows cmd命令界面"></a>执行MySQL dump数据文件，进入windows cmd命令界面</h3><pre><code>mysql -uroot -p123456 test &lt;D:\test_db-master\load_employees.dump
+</code></pre><h3 id="翻倍执行插入数据，即快速插入测试数据-注意，id可以设置自增，这样不用插入"><a href="#翻倍执行插入数据，即快速插入测试数据-注意，id可以设置自增，这样不用插入" class="headerlink" title="翻倍执行插入数据，即快速插入测试数据,注意，id可以设置自增，这样不用插入"></a>翻倍执行插入数据，即快速插入测试数据,注意，id可以设置自增，这样不用插入</h3><pre><code>INSERT into tablename(rate,create_time)  SELECT rate, create_time FROM tablename
+</code></pre><h1 id="修改root用户密码"><a href="#修改root用户密码" class="headerlink" title="修改root用户密码"></a>修改root用户密码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root;</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; UPDATE user SET Password = PASSWORD(&apos;newpass&apos;) WHERE user = &apos;root&apos;;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<p>登陆root用户，给用户赋予创建数据库的权限 ；用户：XXX，密码：XXX<br>创建用户：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;tester&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;wangan&apos;;</span><br><span class="line">grant all privileges on *.* to tester@localhost identified by &apos;password&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>之后登陆tester用户<br>    mysql -u tester -p<br>创建数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE idc DEFAULT CHARACTER SET utf8 ;</span><br><span class="line">student</span><br><span class="line">INSERT INTO student(id,NAME,chinese,english,math) VALUES(1,&apos;张小明&apos;,89,78,90);</span><br><span class="line">INSERT INTO student(id,NAME,chinese,english,math) VALUES(2,&apos;李进&apos;,67,53,95);</span><br><span class="line">INSERT INTO student(id,NAME,chinese,english,math) VALUES(3,&apos;王五&apos;,87,78,77);</span><br><span class="line">INSERT INTO student(id,NAME,chinese,english,math) VALUES(4,&apos;李一&apos;,88,98,92);</span><br><span class="line">INSERT INTO student(id,NAME,chinese,english,math) VALUES(5,&apos;李来财&apos;,82,84,67);</span><br><span class="line">INSERT INTO student(id,NAME,chinese,english,math) VALUES(6,&apos;张进宝&apos;,55,85,45);</span><br><span class="line">INSERT INTO student(id,NAME,chinese,english,math) VALUES(7,&apos;黄蓉&apos;,75,65,30);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SHOW DATABASES</span><br><span class="line"></span><br><span class="line">CREATE DATABASE shop DEFAULT CHARACTER SET utf8  </span><br><span class="line">SHOW DATABASES </span><br><span class="line">SHOW CREATE DATABASE shop</span><br><span class="line">DROP DATABASE shop</span><br><span class="line">student1</span><br><span class="line">CREATE TABLE student1(</span><br><span class="line">	sid INT,</span><br><span class="line">	sname VARCHAR(20),</span><br><span class="line">	sage INT</span><br><span class="line">	</span><br><span class="line">)</span><br><span class="line">DESC student</span><br><span class="line">DROP TABLE student1</span><br><span class="line"></span><br><span class="line">SHOW TABLES</span><br><span class="line">ALTER TABLE student ADD COLUMN sgender VARCHAR(2)</span><br><span class="line">ALTER TABLE student MODIFY COLUMN NAME VARCHAR(40)</span><br><span class="line">ALTER TABLE student  DROP COLUMN sgender</span><br><span class="line"></span><br><span class="line">ALTER TABLE student CHANGE COLUMN sgender gender VARCHAR(2)</span><br><span class="line"></span><br><span class="line">ALTER TABLE teacher RENAME TO student</span><br><span class="line">DESC teacher		</span><br><span class="line"></span><br><span class="line">ALTER TABLE student ADD COLUMN java就业班 VARCHAR(10)</span><br><span class="line"></span><br><span class="line">SELECT * FROM student </span><br><span class="line">SELECT id ,NAME,(english+math) AS &apos;成绩&apos; FROM student</span><br><span class="line"></span><br><span class="line">SELECT  DISTINCT  gender FROM student</span><br><span class="line">SELECT * FROM student WHERE gender &lt;&gt; &apos;男&apos;</span><br><span class="line"></span><br><span class="line">SELECT COUNT(id) FROM student -- 总记录</span><br><span class="line">SELECT * FROM student LIMIT 1,2 -- 从第2 条记录开始查询,查2条</span><br><span class="line">SELECT * FROM student ORDER BY id DESC LIMIT 2,5 -- 排序</span><br><span class="line"></span><br><span class="line">SELECT gender, COUNT(gender) FROM student GROUP BY gender</span><br><span class="line">SELECT gender,COUNT(gender)  gen FROM student GROUP BY gender HAVING gen&gt;2 </span><br><span class="line">ALTER TABLE student ADD hi VARCHAR(10)</span><br><span class="line">ALTER TABLE student DROP hi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE student1(</span><br><span class="line">  id INT ZEROFILL PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">  NAME VARCHAR(20)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SELECT * FROM student1</span><br><span class="line"></span><br><span class="line">INSERT INTO student1(NAME) VALUES (&apos;张三&apos;)</span><br><span class="line">DELETE FROM student1</span><br><span class="line">TRUNCATE TABLE student1</span><br><span class="line"></span><br><span class="line">CREATE TABLE dept(</span><br><span class="line">  id INT PRIMARY KEY,</span><br><span class="line">  deptName VARCHAR(20)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">CREATE TABLE emp(</span><br><span class="line">  id INT PRIMARY KEY,</span><br><span class="line">  empName VARCHAR(20),</span><br><span class="line">  dept_id INT,</span><br><span class="line">  CONSTRAINT emp_dept_fk FOREIGN KEY(dept_id) REFERENCES dept(id)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><h2 id="不带参数"><a href="#不带参数" class="headerlink" title="不带参数"></a>不带参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE  IF EXISTS pro_test;</span><br><span class="line">DELIMITER $ -- 声明存储过程的结束符</span><br><span class="line">  CREATE PROCEDURE pro_test()</span><br><span class="line">  BEGIN </span><br><span class="line">    SELECT * FROM student ;</span><br><span class="line">    SELECT COUNT(1) FROM student;</span><br><span class="line">  END$</span><br><span class="line"></span><br><span class="line">CALL pro_test() -- 执行存储过程</span><br></pre></td></tr></table></figure>
+<h2 id="带输入参数的"><a href="#带输入参数的" class="headerlink" title="带输入参数的"></a>带输入参数的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE  IF EXISTS pro_findById;</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE PROCEDURE pro_findById(IN aid  INT)</span><br><span class="line">  BEGIN </span><br><span class="line">	SELECT * FROM student WHERE id=aid;</span><br><span class="line">END $</span><br><span class="line"></span><br><span class="line">CALL pro_findById(2)</span><br></pre></td></tr></table></figure>
+<h2 id="带输出参数"><a href="#带输出参数" class="headerlink" title="带输出参数"></a>带输出参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS  pro_out;</span><br><span class="line"> DELIMITER $</span><br><span class="line"> CREATE PROCEDURE pro_out(OUT str VARCHAR(20))</span><br><span class="line"> BEGIN</span><br><span class="line">	SET str=&apos;hell1234&apos;;</span><br><span class="line"> END $</span><br><span class="line"></span><br><span class="line">DROP PROCEDURE IF EXISTS pro_testOut;</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE PROCEDURE pro_testOut(OUT str VARCHAR(20))  -- OUT：输出参数</span><br><span class="line">BEGIN</span><br><span class="line">        -- 给参数赋值</span><br><span class="line">	SET str=&apos;helljava&apos;;</span><br><span class="line">END $</span><br><span class="line"></span><br><span class="line">CALL pro_testOut(@NAME) -- 定义会话变量,接受存储过程的值</span><br><span class="line">SELECT @NAME -- 接收输出参数的值</span><br></pre></td></tr></table></figure>
+<h2 id="带有输入输出参数"><a href="#带有输入输出参数" class="headerlink" title="带有输入输出参数"></a>带有输入输出参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $</span><br><span class="line">CREATE PROCEDURE pro_inout(INOUT n INT)</span><br><span class="line">BEGIN </span><br><span class="line">SELECT n;</span><br><span class="line">SET n=500;</span><br><span class="line">END $</span><br><span class="line"></span><br><span class="line">-- 调用</span><br><span class="line">CALL pro_inout(@n)</span><br><span class="line"></span><br><span class="line">-- 查询</span><br><span class="line">SELECT @n</span><br><span class="line"></span><br><span class="line">-- 调用</span><br><span class="line">SET @n=10</span><br><span class="line"></span><br><span class="line">-- 带条件判断的存储过程</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE PROCEDURE pro_testif(IN num INT, OUT str VARCHAR(20))</span><br><span class="line">BEGIN </span><br><span class="line">	IF num=1 THEN </span><br><span class="line">		SET str=&apos;星期一&apos;;</span><br><span class="line">	ELSEIF num=2 THEN </span><br><span class="line">		SET str=&apos;星期二&apos;;</span><br><span class="line">	ELSEIF num=3 THEN </span><br><span class="line">		SET str=&apos;星期三&apos;;</span><br><span class="line">	ELSE</span><br><span class="line">		SET str=&apos;输入有误&apos;;</span><br><span class="line">	END IF;</span><br><span class="line">END $</span><br><span class="line"></span><br><span class="line">CALL pro_testif(1,@str)</span><br><span class="line">SELECT @str</span><br></pre></td></tr></table></figure>
+<h2 id="带有循环功能的"><a href="#带有循环功能的" class="headerlink" title="带有循环功能的"></a>带有循环功能的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS pro_testwhile;</span><br><span class="line">DELIMITER $</span><br><span class="line">CREATE PROCEDURE pro_testwhile(IN num INT, OUT result INT)</span><br><span class="line">BEGIN </span><br><span class="line">	DECLARE i INT DEFAULT 1;</span><br><span class="line">	DECLARE vsum INT DEFAULT 0;</span><br><span class="line">	WHILE i&lt;=num DO </span><br><span class="line">		SET vsum=i+vsum;</span><br><span class="line">		SET i=i+1;</span><br><span class="line">	END WHILE;</span><br><span class="line">	SET result=vsum	;</span><br><span class="line">END $</span><br><span class="line"></span><br><span class="line">CALL pro_testwhile(10,@result)</span><br><span class="line">SELECT @result</span><br></pre></td></tr></table></figure>
+<h2 id="使用查询的结果赋值给变量-into"><a href="#使用查询的结果赋值给变量-into" class="headerlink" title="使用查询的结果赋值给变量 into"></a>使用查询的结果赋值给变量 into</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $</span><br><span class="line">CREATE PROCEDURE pro_testinto(IN eid INT,OUT vname VARCHAR(20))</span><br><span class="line">BEGIN </span><br><span class="line">	SELECT empname INTO vname FROM emp WHERE id=eid;</span><br><span class="line">END $ </span><br><span class="line"></span><br><span class="line">CALL pro_testinto(1,@vname)</span><br><span class="line">SELECT @vname</span><br></pre></td></tr></table></figure>
+<h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><p>当操作了某张表时，希望同时触发一些动作/行为，可以使用触发器完成！！<br>例如： 当向员工表插入一条记录时，希望同时往日志表插入数据<br>员工日志表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE emp_log(</span><br><span class="line">	content VARCHAR(100)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TRIGGER tri_empAdd AFTER INSERT ON emp FOR EACH ROW  -- 删除和修改一样,将INSERT改成UPDATE 和 delete</span><br><span class="line">INSERT INTO emp_log(content) VALUES (&apos;员工表插入了一条记录&apos;) </span><br><span class="line"></span><br><span class="line">INSERT INTO emp(empName,dept_id) VALUES (&apos;刘备&apos;,1)</span><br></pre></td></tr></table></figure></p>
+<p>权限问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USE mysql</span><br><span class="line">SELECT * FROM USER</span><br></pre></td></tr></table></figure></p>
+<p>修改密码<br><code>UPDATE USER SET PASSWORD(&#39;123456&#39;) WHERE USER=&#39;root&#39;</code><br>分配权限账户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT ON test.emp_log TO root</span><br><span class="line">UPDATE emp_log SET content=&apos;hihoa&apos;</span><br></pre></td></tr></table></figure></p>
+<p>创建<br><code>mysql&gt; create user  zx_root   IDENTIFIED by &#39;xxxxx&#39;;   //identified by 会将纯文本密码加密作为散列值存储</code><br>修改<br><code>mysql&gt;rename   user  feng  to   newuser；//mysql 5之后可以使用，之前需要使用update 更新user表</code><br>删除<br><code>mysql&gt;drop user newuser;   //mysql5之前删除用户时必须先使用revoke 删除用户权限，然后删除用户，mysql5之后drop命令可以删除用户的同时删除用户的相关权限</code><br>更改密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set password for zx_root =password(&apos;xxxxxx&apos;);</span><br><span class="line">mysql&gt; update  mysql.user  set  password=password(&apos;xxxx&apos;)  where user=&apos;otheruser&apos;</span><br></pre></td></tr></table></figure></p>
+<p>查看用户权限<br><code>mysql&gt; show grants for zx_root;</code><br>赋予权限<br><code>mysql&gt; grant select on dmc_db.*  to zx_root;</code><br>回收权限<br><code>mysql&gt; revoke  select on dmc_db.*  from  zx_root;  //如果权限不存在会报错</code><br> 上面的命令也可使用多个权限同时赋予和回收，权限之间使用逗号分隔<br><code>mysql&gt; grant select，update，delete  ，insert  on dmc_db.*  to  zx_root;</code><br>如果想立即看到结果使用<br><code>flush  privileges ;</code><br>命令更新<br>设置权限时必须给出一下信息</p>
+<ul>
+<li>要授予的权限</li>
+<li>授予访问权限的数据库或表</li>
+<li>用户名</li>
+</ul>
+<p>grant和revoke可以在几个层次上控制访问权限</p>
+<ul>
+<li>整个服务器，使用 grant ALL  和revoke  ALL</li>
+<li>整个数据库，使用on  database.*</li>
+<li>特点表，使用on  database.table</li>
+<li>特定的列</li>
+<li>特定的存储过程</li>
+</ul>
+<p>user表中host列的值的意义<br>%              匹配所有主机<br>localhost      localhost不会被解析成IP地址，直接通过UNIXsocket连接<br>127.0.0.1      会通过TCP/IP协议连接，并且只能在本机访问；<br>::1            ::1就是兼容支持ipv6的，表示同ipv4的127.0.0.1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grant 普通数据用户，查询、插入、更新、删除 数据库中所有表数据的权利</span><br><span class="line">grant select, insert, update, delete on test.* to root@&apos;%&apos;</span><br><span class="line">grant 数据库开发人员，创建表、索引、视图、存储过程、函数。。。等权限。</span><br><span class="line">grant 创建、修改、删除 MySQL 数据表结构权限。</span><br><span class="line">grant create on test.* to developer@’192.168.0.%’;</span><br><span class="line">grant alter on test.* to developer@’192.168.0.%’;</span><br><span class="line">grant drop on test.* to developer@’192.168.0.%’;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          
+        </div>
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">📜我是有底线滴🍹🍸🍺☕感谢您的阅读📜</div>
+    
+</div>
+  
+</div>
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/13/sorting-algorithm/" rel="prev" title="排序算法">
+                <i class="fa fa-chevron-left"></i> 排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/03/linux/" rel="next" title="linux常用命令大全">
+                linux常用命令大全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="annkee" />
+            
+              <p class="site-author-name" itemprop="name">annkee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/annkee" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangan.cc@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+        
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1321617438&auto=1&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=518088247&auto=1&height=66"></iframe>
+<!--本站已经运行多长时间-->
+<div>
+	<span id="span_dt_dt" style="color: #6B5DB7;display: block"> </span>
+	<span style="display: block">🐶</span>
+	<span style="color: #6B5DB7;display: block">稳得一批</span>
+	
+	<script language="javascript">
+		function show_date_time(){
+			window.setTimeout("show_date_time()", 1000);
+			BirthDay=new Date("12/02/2016 00:00:00");
+			today=new Date();
+			timeold=(today.getTime()-BirthDay.getTime());
+			sectimeold=timeold/1000
+			secondsold=Math.floor(sectimeold);
+			msPerDay=24*60*60*1000
+			e_daysold=timeold/msPerDay
+			daysold=Math.floor(e_daysold);
+			e_hrsold=(e_daysold-daysold)*24;
+			hrsold=Math.floor(e_hrsold);
+			e_minsold=(e_hrsold-hrsold)*60;
+			minsold=Math.floor((e_hrsold-hrsold)*60);
+			seconds=Math.floor((e_minsold-minsold)*60);
+			span_dt_dt.innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+			}
+		show_date_time();
+	</script></div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql的总结的练习题"><span class="nav-number">1.</span> <span class="nav-text">mysql的总结的练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行登陆MySQL"><span class="nav-number">1.1.</span> <span class="nav-text">命令行登陆MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在windows系统‘运行’一栏中输入"><span class="nav-number">1.1.1.</span> <span class="nav-text">在windows系统‘运行’一栏中输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行MySQL-dump数据文件，进入windows-cmd命令界面"><span class="nav-number">1.1.2.</span> <span class="nav-text">执行MySQL dump数据文件，进入windows cmd命令界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻倍执行插入数据，即快速插入测试数据-注意，id可以设置自增，这样不用插入"><span class="nav-number">1.1.3.</span> <span class="nav-text">翻倍执行插入数据，即快速插入测试数据,注意，id可以设置自增，这样不用插入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改root用户密码"><span class="nav-number">2.</span> <span class="nav-text">修改root用户密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存储过程"><span class="nav-number">3.</span> <span class="nav-text">存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不带参数"><span class="nav-number">3.1.</span> <span class="nav-text">不带参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带输入参数的"><span class="nav-number">3.2.</span> <span class="nav-text">带输入参数的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带输出参数"><span class="nav-number">3.3.</span> <span class="nav-text">带输出参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带有输入输出参数"><span class="nav-number">3.4.</span> <span class="nav-text">带有输入输出参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带有循环功能的"><span class="nav-number">3.5.</span> <span class="nav-text">带有循环功能的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用查询的结果赋值给变量-into"><span class="nav-number">3.6.</span> <span class="nav-text">使用查询的结果赋值给变量 into</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#触发器"><span class="nav-number">4.</span> <span class="nav-text">触发器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">annkee</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user-circle-o"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      <i class="fa fa-eye"></i>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytqQ5Qdo';
+      var conf = '8e4a5d862f328644a285c99fe3655d51';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jOaqcIfvvUu9RC8t0OpMVQdQ-gzGzoHsz", "UfCTOCCng31SxEoH6p8P7c3X");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+<script>
+  $("body").backstretch("https://blog.majunxiang.wang/images/background.jpg");
+</script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+</html>

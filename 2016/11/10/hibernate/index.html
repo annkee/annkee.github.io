@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#fff">
+
+
+
+
+
+  <meta name="keywords" content="java,hibernate," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="annkee" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。">
+<meta name="keywords" content="java,hibernate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hibernate相关知识">
+<meta property="og:url" content="https://github.com/annkee/2016/11/10/hibernate/index.html">
+<meta property="og:site_name" content="annkee">
+<meta property="og:description" content="Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://blog.annkee.top/images/hibernate.jpg">
+<meta property="og:updated_time" content="2019-07-08T10:37:27.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hibernate相关知识">
+<meta name="twitter:description" content="Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。">
+<meta name="twitter:image" content="https://blog.annkee.top/images/hibernate.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/annkee/2016/11/10/hibernate/"/>
+
+
+
+
+
+  <title>hibernate相关知识 | annkee</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">annkee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/annkee/2016/11/10/hibernate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="annkee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="annkee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hibernate相关知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-10T00:00:00+08:00">
+                2016-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016/11/10/hibernate/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2016/11/10/hibernate/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2016/11/10/hibernate/" class="leancloud_visitors" data-flag-title="hibernate相关知识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  4,131
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/hibernate.jpg" alt="hibernate" style="width: 100%"></p>
+<a id="more"></a>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。</p>
+<h1 id="Hibernate映射-ORM对象关系映射"><a href="#Hibernate映射-ORM对象关系映射" class="headerlink" title="Hibernate映射(ORM对象关系映射)"></a>Hibernate映射(ORM对象关系映射)</h1><h2 id="多和一的映射"><a href="#多和一的映射" class="headerlink" title="多和一的映射"></a>多和一的映射</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 员工表的映射配置 --&gt;</span><br><span class="line">&lt;hibernate-mapping package=&quot;cn.hpe.po&quot; &gt;</span><br><span class="line">&lt;class name=&quot;Employee&quot; table=&quot;t_employee&quot;&gt;</span><br><span class="line">&lt;!-- 主键 --&gt;</span><br><span class="line">&lt;id name=&quot;empId&quot; column=&quot;empid&quot; &gt;</span><br><span class="line">&lt;!-- 如果此处class设置伟sequence或者native,那么实体类的主键属性必须时int,若是String类型，class必须是uuid --&gt;</span><br><span class="line">&lt;generator class=&quot;sequence&quot;&gt;</span><br><span class="line">&lt;param name=&quot;sequence&quot;&gt;seq_emp_empid&lt;/param&gt;</span><br><span class="line">&lt;/generator&gt;</span><br><span class="line">&lt;/id&gt;</span><br><span class="line">&lt;property name=&quot;empName&quot; length=&quot;50&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;property name=&quot;salary&quot; type=&quot;double&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;!-- 多对一 映射的另外一张t_dept表 ,dept_id 和 dept表的 映射的外键key标签的属性都是dept_id --&gt;</span><br><span class="line">&lt;many-to-one name=&quot;dept&quot; class=&quot;Dept&quot; column=&quot;dept_id&quot; &gt;&lt;/many-to-one&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- 部门表的 映射配置 --&gt;</span><br><span class="line">&lt;hibernate-mapping package=&quot;cn.hpe.po&quot; auto-import=&quot;true&quot;&gt;</span><br><span class="line">&lt;class name=&quot;Dept&quot; table=&quot;t_dept&quot;&gt;</span><br><span class="line">&lt;!-- 主键 --&gt;</span><br><span class="line">&lt;id name=&quot;deptId&quot; column=&quot;deptid&quot; &gt;</span><br><span class="line">&lt;!-- 如果此处class设置伟sequence或者native,那么实体类的主键属性必须时int,若是String类型，class必须是uuid --&gt;</span><br><span class="line">&lt;generator class=&quot;sequence&quot; &gt;</span><br><span class="line">&lt;param name=&quot;sequence&quot;&gt;seq_dept_deptid&lt;/param&gt;</span><br><span class="line">&lt;/generator&gt;</span><br><span class="line">&lt;/id&gt;</span><br><span class="line">&lt;property name=&quot;deptName&quot; length=&quot;50&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">set 集合属性映射</span><br><span class="line">name 指定要映射的set集合的属性</span><br><span class="line">table 集合属性要映射到的表</span><br><span class="line">key 指定集合表（t_employee）的外键字段</span><br><span class="line">element 指定集合表的其他字段</span><br><span class="line">type 元素类型，一定要指定</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">一对多 映射的另外一张t_employee表 ；</span><br><span class="line">inverse默认false，不控制反转，说明当前方具有控制权;</span><br><span class="line">inverse=true,说明没有控制权，没有控制权不能进行关系解除和删除数据</span><br><span class="line">cascade的值 ：none（默认），(save-update)，(seve-update,delete 一定要有 逗号)，（all 所有但不包括默认none）</span><br><span class="line">cascade=none,默认不级联操作，所谓级联就是操作某个表数据同时也会操作另外关联的表的数据</span><br><span class="line">面试题：inverse和cascade的关系： 当设置inverse=true时cascade也可以进行级联删除</span><br><span class="line">--&gt;</span><br><span class="line">&lt;set name=&quot;emps&quot; table=&quot;t_employee&quot; inverse=&quot;false&quot; cascade=&quot;none&quot;&gt;</span><br><span class="line">&lt;!-- 配置外键字段 --&gt;</span><br><span class="line">&lt;key column=&quot;dept_id&quot;&gt;&lt;/key&gt;</span><br><span class="line">&lt;one-to-many class=&quot;Employee&quot;/&gt;</span><br><span class="line">&lt;/set&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="一和一的映射"><a href="#一和一的映射" class="headerlink" title="一和一的映射"></a>一和一的映射</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 身份证表映射 users 的 映射配置 --&gt;</span><br><span class="line">&lt;hibernate-mapping package=&quot;cn.hpe.po&quot;&gt;</span><br><span class="line">&lt;class name=&quot;IdCard&quot; table=&quot;t_idcard&quot;&gt;</span><br><span class="line">&lt;!-- 主键 --&gt;</span><br><span class="line">&lt;id name=&quot;cardNum&quot; column=&quot;cardid&quot; &gt;</span><br><span class="line">&lt;!-- 如果此处class设置assigned 指定主键生成策略，为手动指定主键的值 --&gt;</span><br><span class="line">&lt;generator class=&quot;assigned&quot;&gt;&lt;/generator&gt;</span><br><span class="line">&lt;/id&gt;</span><br><span class="line">&lt;property name=&quot;place&quot; length=&quot;100&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;!-- 特殊的多对一映射，即一对一，有外键方，unique=true，设置外键唯一，此时外键也成了&apos;主键 &apos;，此配置是基于外键的配置--&gt;</span><br><span class="line">&lt;many-to-one name=&quot;users&quot; class=&quot;Users&quot; column=&quot;usersid&quot; unique=&quot;true&quot; cascade=&quot;save-update&quot;/&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- users用户信息的 映射配置 --&gt;</span><br><span class="line">&lt;hibernate-mapping package=&quot;cn.hpe.po&quot;&gt;</span><br><span class="line">&lt;class name=&quot;Users&quot; table=&quot;t_users&quot;&gt;</span><br><span class="line">&lt;!-- 主键 --&gt;</span><br><span class="line">&lt;id name=&quot;usersId&quot; column=&quot;usersid&quot; &gt;</span><br><span class="line">&lt;generator class=&quot;sequence&quot;&gt;</span><br><span class="line">&lt;param name=&quot;sequence&quot;&gt;seq_tusers_usersid&lt;/param&gt;</span><br><span class="line">&lt;/generator&gt;</span><br><span class="line">&lt;/id&gt;</span><br><span class="line">&lt;property name=&quot;userName&quot; length=&quot;50&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;!-- 一对一映射，没有外键方 --&gt;</span><br><span class="line">&lt;one-to-one name=&quot;idCard1&quot; class=&quot;IdCard1&quot; /&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="多和多的映射"><a href="#多和多的映射" class="headerlink" title="多和多的映射"></a>多和多的映射</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 项目表的 映射配置 --&gt;</span><br><span class="line">&lt;hibernate-mapping package=&quot;cn.hpe.po&quot;&gt;</span><br><span class="line">&lt;class name=&quot;Project&quot; table=&quot;t_project&quot;&gt;</span><br><span class="line">&lt;!-- 主键 --&gt;</span><br><span class="line">&lt;id name=&quot;prjId&quot; column=&quot;prj_id&quot; &gt;</span><br><span class="line">&lt;!-- 如果此处class设置伟sequence或者native,那么实体类的主键属性必须时int,若是String类型，class必须是uuid --&gt;</span><br><span class="line">&lt;generator class=&quot;sequence&quot;&gt;</span><br><span class="line">&lt;param name=&quot;sequence&quot;&gt;seq_project_prjid&lt;/param&gt;</span><br><span class="line">&lt;/generator&gt;</span><br><span class="line">&lt;/id&gt;</span><br><span class="line">&lt;property name=&quot;prjName&quot; length=&quot;50&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;!-- 多对多 映射的另外一张t_relation表 --&gt;</span><br><span class="line">&lt;set name=&quot;developers&quot; table=&quot;t_relation&quot; cascade=&quot;save-update&quot;&gt;</span><br><span class="line">&lt;!-- 配置外键字段 --&gt;</span><br><span class="line">&lt;key column=&quot;prj_id&quot;&gt;&lt;/key&gt;</span><br><span class="line">&lt;many-to-many class=&quot;Developer&quot; column=&quot;d_id&quot; &gt;&lt;/many-to-many&gt;</span><br><span class="line">&lt;/set&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 开发人员表的 映射配置 --&gt;</span><br><span class="line">&lt;hibernate-mapping package=&quot;cn.hpe.po&quot;&gt;</span><br><span class="line">&lt;class name=&quot;Developer&quot; table=&quot;t_developer&quot;&gt;</span><br><span class="line">&lt;!-- 主键 --&gt;</span><br><span class="line">&lt;id name=&quot;dId&quot; column=&quot;d_id&quot; &gt;</span><br><span class="line">&lt;!-- 如果此处class设置伟sequence或者native,那么实体类的主键属性必须时int,若是String类型，class必须是uuid --&gt;</span><br><span class="line">&lt;generator class=&quot;sequence&quot;&gt;</span><br><span class="line">&lt;param name=&quot;sequence&quot;&gt;seq_developer_did&lt;/param&gt;</span><br><span class="line">&lt;/generator&gt;</span><br><span class="line">&lt;/id&gt;</span><br><span class="line">&lt;property name=&quot;dName&quot; length=&quot;50&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">set 集合属性映射</span><br><span class="line">name 指定要映射的set集合的属性</span><br><span class="line">table 集合属性要映射到的表</span><br><span class="line">key 指定集合表（t_employee）的外键字段</span><br><span class="line">element 指定集合表的其他字段</span><br><span class="line">type 元素类型，一定要指定</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">多对多 映射的另外一张t_relation表 ；</span><br><span class="line">inverse默认false，不控制反转，说明当前方具有控制权;</span><br><span class="line">inverse=true,说明没有控制权，没有控制权不能进行关系解除和删除数据</span><br><span class="line">cascade的值 ：none（默认），(save-update)，(seve-update,delete 一定要有 逗号)，（all 所有但不包括默认none）</span><br><span class="line">cascade=none,默认不级联操作，所谓级联就是操作某个表数据同时也会操作另外关联的表的数据</span><br><span class="line">懒加载属性：lazy值：</span><br><span class="line">默认 true 设置懒加载</span><br><span class="line">false 关闭懒加载</span><br><span class="line">extra （更高级，经常使用这个属性）只有在使用的时候才去数据库取数据，防止只查询记录数的时候会把所有的数据查出来</span><br><span class="line">目的：提高效率</span><br><span class="line">--&gt;</span><br><span class="line">&lt;set name=&quot;projects&quot; table=&quot;t_relation&quot; cascade=&quot;save-update&quot; lazy=&quot;extra&quot;&gt;</span><br><span class="line">&lt;!-- 配置外键字段 --&gt;</span><br><span class="line">&lt;key column=&quot;d_id&quot;&gt;&lt;/key&gt;</span><br><span class="line">&lt;many-to-many class=&quot;Project&quot; column=&quot;prj_id&quot; &gt;&lt;/many-to-many&gt;</span><br><span class="line">&lt;/set&gt;</span><br><span class="line">&lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h1><h2 id="及时加载–get"><a href="#及时加载–get" class="headerlink" title="及时加载–get()"></a>及时加载–get()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Developer developer = new Developer();</span><br><span class="line">// Hibernate: select developer0_.d_id as d1_0_0_, developer0_.dName as</span><br><span class="line">// dName0_0_ from t_developer developer0_ where developer0_.d_id=?</span><br><span class="line">// developer = (Developer) session.get(Developer.class, 1);</span><br><span class="line">// get及时加载，会把所有相关的字段查出来</span><br></pre></td></tr></table></figure>
+<h2 id="懒加载–load"><a href="#懒加载–load" class="headerlink" title="懒加载–load()"></a>懒加载–load()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 懒加载，内部hibernate其实使用代理对象($Proxy01)进行懒加载，配置lazy=true。只是加载并没有执行数据库查询，没有sql语句输出</span><br><span class="line">developer = (Developer) session.load(Developer.class, 1);</span><br><span class="line"></span><br><span class="line">// 用到时才会查询数据库</span><br><span class="line">// Hibernate: select developer0_.d_id as d1_0_0_, developer0_.dName as</span><br><span class="line">// dName0_0_ from t_developer developer0_ where developer0_.d_id=?</span><br><span class="line">// 用到时才会查询数据库，输出：李四</span><br><span class="line">// System.out.println(developer.getdName());</span><br></pre></td></tr></table></figure>
+<h2 id="如何解决在session关闭后输出懒加载内容异常"><a href="#如何解决在session关闭后输出懒加载内容异常" class="headerlink" title="如何解决在session关闭后输出懒加载内容异常"></a>如何解决在session关闭后输出懒加载内容异常</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 方式1： 先使用一下数据</span><br><span class="line">// developer.getdName();</span><br><span class="line">// 方式2：强迫代理对象初始化</span><br><span class="line">Hibernate.initialize(developer);</span><br><span class="line">// 方式3：关闭懒加载 在映射文件中设置lazy=&quot;false&quot;</span><br><span class="line"></span><br><span class="line">// 获取事务并提交,这才是执行数据库操作</span><br><span class="line">session.getTransaction().commit();</span><br><span class="line">session.close();</span><br><span class="line"></span><br><span class="line">// 如何解决在session关闭后输出懒加载内容异常</span><br><span class="line">System.out.println(developer.getdName());</span><br></pre></td></tr></table></figure>
+<h2 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Developer developer = null;</span><br><span class="line">developer = (Developer) session.get(Developer.class, 1);// 查询数据时先检查缓存中是否有数据，没有数据再从数据库查询</span><br><span class="line">developer = (Developer) session.get(Developer.class, 1);// 此时一级缓存中已经有数据</span><br><span class="line">// 查询数据时先检查缓存中是否有数据，没有数据再从数据库查询</span><br><span class="line"></span><br><span class="line">// 获取事务并提交,这才是执行数据库操作</span><br><span class="line">session.getTransaction().commit();</span><br><span class="line">session.close();</span><br><span class="line">// 执行一条sql语句，说明第一次查询时缓存中没有数据，然后放入缓存，接下来的又一次查询会直接从缓存中获取</span><br><span class="line">// Hibernate:select developer0_.d_id as d1_0_0_, developer0_.dName as</span><br><span class="line">// dName0_0_ from t_developer developer0_ where developer0_.d_id=?</span><br></pre></td></tr></table></figure>
+<h2 id="测试缓存的方法有"><a href="#测试缓存的方法有" class="headerlink" title="测试缓存的方法有:"></a>测试缓存的方法有:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.flush()//缓存中的数据同步到数据库中</span><br><span class="line">session.clear()//清空当前缓存</span><br><span class="line">session.evict(developer);// 清空指定对象object</span><br></pre></td></tr></table></figure>
+<h2 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h2><p>使用二级缓存的前提是在配置文件配置二级缓存,并指定哪些类会加入二级缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- ****************** 【二级缓存配置】 ****************** --&gt;</span><br><span class="line">&lt;!-- 开启二级缓存 --&gt;</span><br><span class="line">&lt;property name=&quot;hibernate.cache.use_second_level_cache&quot;&gt;true&lt;/property&gt;</span><br><span class="line">&lt;!-- 开启哪一个缓存框架 --&gt;</span><br><span class="line">&lt;property name=&quot;hibernate.cache.provider_class&quot;&gt;org.hibernate.cache.HashtableCacheProvider&lt;/property&gt;</span><br><span class="line">&lt;!-- 开启二级缓存中的缓存查询 --&gt;</span><br><span class="line">&lt;property name=&quot;hibernate.cache.use_query_cache&quot;&gt;true&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">指定哪一些(常用的)类，需要加入二级缓存，二级缓存会消耗内存,查询速度快</span><br><span class="line">usage缓存策略：</span><br><span class="line">&lt;class-cache usage=&quot;read-write&quot; class=&quot;cn.hpe.po.Dept&quot;/&gt;</span><br><span class="line">&lt;!-- employee 集合也放入二级缓存查询 --&gt;</span><br><span class="line">&lt;class-cache usage=&quot;read-only&quot; class=&quot;cn.hpe.po.Employee&quot;/&gt;</span><br><span class="line">&lt;!-- 集合缓存[集合缓存的 元素 对象，也加入二级缓存，就是class=&quot;cn.hpe.po.Employee&quot;] --&gt;</span><br><span class="line">&lt;collection-cache usage=&quot;read-write&quot; collection=&quot;cn.hpe.po.Dept.emps&quot;/&gt;</span><br><span class="line"></span><br><span class="line">Dept dept = (Dept) session1.get(Dept.class, 1);//第一次查询,已经放入二级缓存</span><br><span class="line">...</span><br><span class="line">dept = (Dept) session2.get(Dept.class, 1);//另一个session来获取二级缓存的数据,不会从数据库查询</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h1 id="mappingLocations-mappingDirectoryLocations"><a href="#mappingLocations-mappingDirectoryLocations" class="headerlink" title="mappingLocations,mappingDirectoryLocations,"></a>mappingLocations,mappingDirectoryLocations,</h1><h1 id="mappingJarLocations区别"><a href="#mappingJarLocations区别" class="headerlink" title="mappingJarLocations区别"></a>mappingJarLocations区别</h1><p>由于spring对hibernate配置文件hibernate.cfg.xml的集成相当好，所以，在项目中我一直使用<br>spring的org.springframework.orm.hibernate.LocalSessionFactoryBean来取代hibernate.cfg.xml文件的功能<br>LocalSessionFactoryBean有好几个属性用来查找hibernate映射文件：mappingResources、mappingLocations、<br>mappingDirectoryLocations与mappingJarLocations<br>他们的区别：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">mappingResources：指定classpath下具体映射文件名</span><br><span class="line">&lt;property name=&quot;mappingResources&quot;&gt;</span><br><span class="line">    &lt;value&gt;petclinic.hbm.xml &lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">mappingLocations：可以指定任何文件路径，并且可以指定前缀：classpath、file等</span><br><span class="line">&lt;property name=&quot;mappingLocations&quot;&gt;</span><br><span class="line">    &lt;value&gt;/WEB-INF/petclinic.hbm.xml &lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property name=&quot;mappingLocations&quot;&gt;</span><br><span class="line">    &lt;value&gt;classpath:/com/company/domain/petclinic.hbm.xml &lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">也可以用通配符指定，&apos;*&apos;指定一个文件(路径)名，&apos;**&apos;指定多个文件(路径)名，例如：</span><br><span class="line">&lt;property name=&quot;mappingLocations&quot;&gt;</span><br><span class="line">    &lt;value&gt;classpath:/com/company/domainmaps/*.hbm.xml &lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">上面的配置是在com/company/domain包下任何maps路径下的hbm.xml文件都被加载为映射文件 </span><br><span class="line"></span><br><span class="line">mappingDirectoryLocations：指定映射的文件路径 </span><br><span class="line">&lt;property name=&quot;mappingDirectoryLocations&quot;&gt;</span><br><span class="line">  &lt;list&gt;</span><br><span class="line">  &lt;value&gt;WEB-INF/HibernateMappings&lt;/value&gt;</span><br><span class="line">  &lt;/list&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">也可以通过classpath来指出</span><br><span class="line">&lt;property name=&quot;mappingDirectoryLocations&quot;&gt;</span><br><span class="line">  &lt;list&gt;</span><br><span class="line">  &lt;value&gt;classpath:/XXX/package/&lt;/value&gt;</span><br><span class="line">  &lt;/list&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">mappingJarLocations：指定加载的映射文件在jar文件中</span><br></pre></td></tr></table></figure></p>
+<h1 id="关于java"><a href="#关于java" class="headerlink" title="关于java "></a>关于java <action name="emp-*" class="employeeAction" method="{1}"></action></h1><p>这是利用Struts2里面的自动匹配特性。<em>代表通配符，可以匹配任何一个字符串[1]表示匹配的参数。举个例子来说，如果你在xml文件中做了这个配置，那么当你页面里面有一个form<br><code>&lt;form action=&quot;/emp-add&quot; method=&quot;post&quot;&gt;</code>那么，</em>匹配到的就是“add”,同时method=”{1}”，实际上就是method=”add”。<br>假设有两个参数，我么在xml里面的配置是<br><code>&lt;action name=&quot;emp-*-*&quot; class=&quot;{1}Action&quot; method=&quot;{2}&quot;&gt;</code><br>那么第一个星号对应的是{1},第二个星号对应的是{2}<br>例如，页面里面有<code>&lt;form action=&quot;/emp-employee-add&quot; method=&quot;post&quot;&gt;</code><br>那么实际上的意思就是<br><code>&lt;action name=&quot;emp-employee-*&quot; class=&quot;employeeAction&quot; method=&quot;add&quot;&gt;</code></p>
+<p>这样做的好处就是我们不必为增删改查资格方法写四个<action>配置。同样如果有相似的逻辑，比如学生信息的增删改查和老师信息的增删改查逻辑是一样的，那么我们也可以通过通配符来节省xml文件中的代码量</action></p>
+<p>前提是一定要遵守通配符的约定</p>
+<h1 id="struts运行机制（用户访问一个url）"><a href="#struts运行机制（用户访问一个url）" class="headerlink" title="struts运行机制（用户访问一个url）"></a>struts运行机制（用户访问一个url）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index.jsp:</span><br><span class="line">&lt;c:redirect url=&quot;/employee_list&quot;&gt;&lt;/c:redirect&gt;</span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>注意url</p></div>
+
+<h1 id="struts-xml配置"><a href="#struts-xml配置" class="headerlink" title="struts.xml配置"></a>struts.xml配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- ###   action 实例交给spring创建；链接传过来的地址在这进行处理 ，</span><br><span class="line">      method=&quot;&#123;1&#125;&quot;就是匹配 ‘*’，就是方法的名字，如果url=&quot;/employee_list&quot;,则method=list，</span><br><span class="line">      自动去class=&quot;employeeAction&quot;（action实例），去类 EmployeeAction中找list()方法，执行后方法返回&quot;list&quot;字符串，对应name=&quot;list&quot;,</span><br><span class="line">      匹配后进入/WEB-INF/list.jsp--&gt;</span><br><span class="line">      &lt;action name=&quot;employee_*&quot; class=&quot;employeeAction&quot; method=&quot;&#123;1&#125;&quot;&gt;//这行代码是第三步随后进入action类里执行后还返回这里才往下执行result name=&quot;list&quot;&gt;/WEB-INF/list.jsp&lt;/result&gt;</span><br><span class="line">          &lt;!-- 1.列表展示，放在/WEB-INF 下面 --&gt;</span><br><span class="line">          &lt;result name=&quot;list&quot;&gt;/WEB-INF/list.jsp&lt;/result&gt;</span><br><span class="line">          &lt;!-- 2.进入添加页面，放在/WEB-INF 下面 --&gt;</span><br><span class="line">          &lt;result name=&quot;add&quot;&gt;/WEB-INF/add.jsp&lt;/result&gt;</span><br><span class="line">          &lt;!-- 3.添加成功，进入列表，（防止用户刷新多一条记录） --&gt;</span><br><span class="line">          &lt;result name=&quot;listAction&quot; type=&quot;redirect&quot;&gt;employee_list&lt;/result&gt;</span><br><span class="line">          &lt;!-- 4.修改员工数据，进入修改页面 --&gt;</span><br><span class="line">          &lt;result name=&quot;edit&quot;&gt;/WEB-INF/edit.jsp&lt;/result&gt;</span><br><span class="line"></span><br><span class="line">      &lt;/action&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="EmployeeAction-java"><a href="#EmployeeAction-java" class="headerlink" title="EmployeeAction.java"></a>EmployeeAction.java</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 1. 员工列表展示</span><br><span class="line">  */</span><br><span class="line"></span><br><span class="line"> public String list() &#123;</span><br><span class="line">      List&lt;Employee&gt; list = employeeService.getAll();</span><br><span class="line">      request.put(&quot;listEmp&quot;, list);</span><br><span class="line">      return &quot;list&quot;;//返回到struts.xml中</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&lt;result name=&quot;list&quot;&gt;/WEB-INF/list.jsp&lt;/result&gt;</span><br><span class="line">进入list.jsp页面</span><br></pre></td></tr></table></figure>
+<h2 id="list-jsp显示页面"><a href="#list-jsp显示页面" class="headerlink" title="list.jsp显示页面"></a>list.jsp显示页面</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;table border=&quot;1&quot; align=&quot;center&quot; width=&quot;80%&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot;&gt;</span><br><span class="line">          &lt;tr&gt;</span><br><span class="line">           &lt;th&gt;序号&lt;/th&gt;</span><br><span class="line">           &lt;th&gt;员工编号&lt;/th&gt;</span><br><span class="line">           &lt;th&gt;员工姓名&lt;/th&gt;</span><br><span class="line">           &lt;th&gt;员工薪水&lt;/th&gt;</span><br><span class="line">           &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;s:if test=&quot;#request.listEmp != null&quot;&gt;</span><br><span class="line">           &lt;s:iterator var=&quot;emp&quot; value=&quot;#request.listEmp&quot; status=&quot;st&quot;&gt;</span><br><span class="line">               &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt; &lt;s:property value=&quot;#st.count&quot;/&gt; &lt;/td&gt;</span><br><span class="line">                    &lt;td&gt; &lt;s:property value=&quot;#emp.employeeId&quot;/&gt; &lt;/td&gt;</span><br><span class="line">                    &lt;td&gt; &lt;s:property value=&quot;#emp.employeeName&quot;/&gt; &lt;/td&gt;</span><br><span class="line">                    &lt;td&gt; &lt;s:property value=&quot;#emp.employeeSalary&quot;/&gt; &lt;/td&gt;</span><br><span class="line">                    &lt;td&gt; &lt;s:a href=&quot;employee_viewUpdate?employeeId=%&#123;#emp.employeeId&#125;&quot;&gt;修改 &lt;/s:a&gt;</span><br><span class="line">                    &lt;s:a href=&quot;employee_delete?employeeId=%&#123;#emp.employeeId&#125;&quot;&gt;删除 &lt;/s:a&gt; &lt;/td&gt;</span><br><span class="line">               &lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">           &lt;/s:iterator&gt;</span><br><span class="line">      &lt;/s:if&gt;</span><br></pre></td></tr></table></figure>
+<p>struts登陆成功后用户信息保存到session用actionContext<br><code>ActionContext.getContext().getSession().put(&quot;adminInfo&quot;,adminInfo);</code></p>
+<h2 id="config-the-follow-in-Oracle"><a href="#config-the-follow-in-Oracle" class="headerlink" title="config the follow in Oracle"></a>config the follow in Oracle</h2><h3 id="Employee-hbm-xml"><a href="#Employee-hbm-xml" class="headerlink" title="Employee.hbm.xml:"></a>Employee.hbm.xml:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;class name=&quot;Employee&quot; table=&quot;t_employee&quot;&gt;</span><br><span class="line"> &lt;!-- 主键 --&gt;</span><br><span class="line">      &lt;id name=&quot;empId&quot; column=&quot;empid&quot; type=&quot;string&quot;&gt;</span><br><span class="line">          &lt;generator class=&quot;uuid&quot;&gt; (if you set class=&quot;native&quot;,the type of empId of class Employee must be int)</span><br><span class="line">               &lt;param name=&quot;sequence&quot;&gt;seq_emp_empid&lt;/param&gt;</span><br><span class="line">          &lt;/generator&gt;</span><br><span class="line">      &lt;/id&gt;</span><br><span class="line">      &lt;property name=&quot;empName&quot; length=&quot;50&quot;&gt;&lt;/property&gt;</span><br><span class="line">      &lt;property name=&quot;salary&quot; type=&quot;double&quot;&gt;&lt;/property&gt;</span><br><span class="line">       &lt;!-- 多对一 映射的另外一张t_dept表 ,dept_id 和  dept表的 映射的外键key标签的属性都是dept_id --&gt;</span><br><span class="line">      &lt;many-to-one name=&quot;dept&quot; class=&quot;Dept&quot; column=&quot;dept_id&quot;&gt;&lt;/many-to-one&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/class&gt;</span><br><span class="line"></span><br><span class="line">Employee:</span><br><span class="line">    private String empId;// 员工编号</span><br><span class="line">    private String empName;// 姓名</span><br><span class="line">    private double salary;// 薪水</span><br><span class="line">    // 一个员工对应一个部门</span><br><span class="line">    private Dept dept;// 所属部门</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>if you set the type of empId String in Employee, you will set “ class=”uuid””<br>and create table auto primary key: uuid </p></div>
+
+
+<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><ul>
+<li>不同的session是否会共享缓存数据?</li>
+</ul>
+<div class="note info"><p><br>    不会。<br>    User1  u1 = Session1.get(User.class,1);   把u1对象放入session1的缓存<br>    Session2.update(u1);     把u1放入session2的缓存<br>     U1.setName(‘new Name’);<br>如果生成2条update sql， 说明不同的session使用不同的缓存区，不能共享。</p></div>
+
+
+<ul>
+<li>Hibernate  –list与iterator查询的区别？</li>
+</ul>
+<div class="note info"><p>list()<br>一次把所有的记录都查询出来，<br>会放入缓存，但不会从缓存中获取数据<br>Iterator<br>N+1查询； N表示所有的记录总数<br>即会先发送一条语句查询所有记录的主键（1），<br>再根据每一个主键再去数据库查询（N）！<br></p></div>
+
+<h1 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;class-cache usage=&quot;read-only&quot;/&gt;    放入二级缓存的对象，只读;</span><br><span class="line">     &lt;class-cache usage=&quot;nonstrict-read-write&quot;/&gt; 非严格的读写</span><br><span class="line">     &lt;class-cache usage=&quot;read-write&quot;/&gt;   读写；放入二级缓存的对象可以读、写；</span><br><span class="line">     &lt;class-cache usage=&quot;transactional&quot;/&gt;   (基于事务的策略)</span><br></pre></td></tr></table></figure>
+<h2 id="缓存的机制：Map-lt-条件，对象-gt"><a href="#缓存的机制：Map-lt-条件，对象-gt" class="headerlink" title="缓存的机制：Map&lt;条件，对象&gt;"></a>缓存的机制：Map&lt;条件，对象&gt;</h2><h1 id="hibernate工作流程："><a href="#hibernate工作流程：" class="headerlink" title="hibernate工作流程："></a>hibernate工作流程：</h1><p>1️⃣ 读取并解析配置文件；<br>2️⃣ Configuration负责读取并创建映射信息，创建sessionfactory；<br>3️⃣ SessionFactory负责创建session；<br>4️⃣ Transaction负责开启事物Transaction；<br>5️⃣ Query负责执行持久化操作；<br>6️⃣ Transaction负责提交实物；<br>7️⃣ 关闭session；<br>8️⃣ 关闭sessionfactory。</p>
+<h1 id="懒加载-代理对象"><a href="#懒加载-代理对象" class="headerlink" title="懒加载:代理对象"></a>懒加载:代理对象</h1><p>内部hibernate其实使用代理对象($Proxy01)进行懒加载，配置lazy=true。只是加载并没有执行数据库查询，没有sql语句输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">developer=(Developer)session.load(Developer.class,1);</span><br><span class="line">// 用到时才会查询数据库</span><br><span class="line">//Hibernate: select developer0_.d_id as d1_0_0_, developer0_.dName as</span><br><span class="line">// dName0_0_ from t_developer developer0_ where developer0_.d_id=?</span><br><span class="line">// 用到时才会查询数据库，输出：李四</span><br><span class="line">// System.out.println(developer.getdName());</span><br></pre></td></tr></table></figure></p>
+<h1 id="hibernate分页"><a href="#hibernate分页" class="headerlink" title="hibernate分页"></a>hibernate分页</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">publicvoidpage()&#123;</span><br><span class="line">    Sessionsession=HibernateUtiles.getSession();</span><br><span class="line">    // 开始事务</span><br><span class="line">    session.beginTransaction();</span><br><span class="line">    Queryquery=session.createQuery(&quot;from Employee&quot;);</span><br><span class="line">    // 总记录数--滚动结果集</span><br><span class="line">    ScrollableResultssResults=query.scroll();// 得到滚动的结果集</span><br><span class="line">    sResults.last();// 滚动到最后一行</span><br><span class="line">    inttotalRecords=sResults.getRowNumber()+1;// 获取总记录数</span><br><span class="line">    // 设置分页参数，输出2条记录</span><br><span class="line">    query.setFirstResult(2);</span><br><span class="line">    query.setMaxResults(3);</span><br><span class="line">    // 输出查询</span><br><span class="line">    System.out.println(query.list());</span><br><span class="line">    System.out.println(&quot;记录数&quot;+totalRecords);</span><br><span class="line">    // 获取事务并提交,这才是执行数据库操作</span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">    session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="hibernate连接查询–迫切连接"><a href="#hibernate连接查询–迫切连接" class="headerlink" title="hibernate连接查询–迫切连接"></a>hibernate连接查询–迫切连接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">publicvoidfetch()&#123;</span><br><span class="line">    Sessionsession=HibernateUtiles.getSession();</span><br><span class="line">    // 开始事务</span><br><span class="line">    session.beginTransaction();</span><br><span class="line">    // 迫切 内连接，把右表的数据填充到左表，返回的类型就是左表的类型dept</span><br><span class="line">    // Query query = session</span><br><span class="line">    // .createQuery(&quot;fromDeptd inner join fetch d.emps&quot;);</span><br><span class="line">    // query.list();</span><br><span class="line">    // 迫切 左外连接，把右表的数据填充到左表，返回的类型就是左表的类型dept</span><br><span class="line">    // Query query =</span><br><span class="line">    // session.createQuery(&quot;fromDeptd left join fetch d.emps&quot;);</span><br><span class="line">    // query.list();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/hibernate/" rel="tag"><i class="fa fa-tag"></i> hibernate</a>
+          
+        </div>
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">📜我是有底线滴🍹🍸🍺☕感谢您的阅读📜</div>
+    
+</div>
+  
+</div>
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/23/spring-mybatis/" rel="prev" title="spring mybatis整合">
+                <i class="fa fa-chevron-left"></i> spring mybatis整合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/01/interview-questions/" rel="next" title="spring面试题综合">
+                spring面试题综合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="annkee" />
+            
+              <p class="site-author-name" itemprop="name">annkee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/annkee" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangan.cc@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+        
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1321617438&auto=1&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=518088247&auto=1&height=66"></iframe>
+<!--本站已经运行多长时间-->
+<div>
+	<span id="span_dt_dt" style="color: #6B5DB7;display: block"> </span>
+	<span style="display: block">🐶</span>
+	<span style="color: #6B5DB7;display: block">稳得一批</span>
+	
+	<script language="javascript">
+		function show_date_time(){
+			window.setTimeout("show_date_time()", 1000);
+			BirthDay=new Date("12/02/2016 00:00:00");
+			today=new Date();
+			timeold=(today.getTime()-BirthDay.getTime());
+			sectimeold=timeold/1000
+			secondsold=Math.floor(sectimeold);
+			msPerDay=24*60*60*1000
+			e_daysold=timeold/msPerDay
+			daysold=Math.floor(e_daysold);
+			e_hrsold=(e_daysold-daysold)*24;
+			hrsold=Math.floor(e_hrsold);
+			e_minsold=(e_hrsold-hrsold)*60;
+			minsold=Math.floor((e_hrsold-hrsold)*60);
+			seconds=Math.floor((e_minsold-minsold)*60);
+			span_dt_dt.innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+			}
+		show_date_time();
+	</script></div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hibernate映射-ORM对象关系映射"><span class="nav-number">2.</span> <span class="nav-text">Hibernate映射(ORM对象关系映射)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多和一的映射"><span class="nav-number">2.1.</span> <span class="nav-text">多和一的映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一和一的映射"><span class="nav-number">2.2.</span> <span class="nav-text">一和一的映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多和多的映射"><span class="nav-number">2.3.</span> <span class="nav-text">多和多的映射</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#懒加载"><span class="nav-number">3.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#及时加载–get"><span class="nav-number">3.1.</span> <span class="nav-text">及时加载–get()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载–load"><span class="nav-number">3.2.</span> <span class="nav-text">懒加载–load()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何解决在session关闭后输出懒加载内容异常"><span class="nav-number">3.3.</span> <span class="nav-text">如何解决在session关闭后输出懒加载内容异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一级缓存"><span class="nav-number">3.4.</span> <span class="nav-text">一级缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试缓存的方法有"><span class="nav-number">3.5.</span> <span class="nav-text">测试缓存的方法有:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二级缓存"><span class="nav-number">3.6.</span> <span class="nav-text">二级缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mappingLocations-mappingDirectoryLocations"><span class="nav-number">4.</span> <span class="nav-text">mappingLocations,mappingDirectoryLocations,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mappingJarLocations区别"><span class="nav-number">5.</span> <span class="nav-text">mappingJarLocations区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于java"><span class="nav-number">6.</span> <span class="nav-text">关于java </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#struts运行机制（用户访问一个url）"><span class="nav-number">7.</span> <span class="nav-text">struts运行机制（用户访问一个url）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#struts-xml配置"><span class="nav-number">8.</span> <span class="nav-text">struts.xml配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EmployeeAction-java"><span class="nav-number">8.1.</span> <span class="nav-text">EmployeeAction.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list-jsp显示页面"><span class="nav-number">8.2.</span> <span class="nav-text">list.jsp显示页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config-the-follow-in-Oracle"><span class="nav-number">8.3.</span> <span class="nav-text">config the follow in Oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Employee-hbm-xml"><span class="nav-number">8.3.1.</span> <span class="nav-text">Employee.hbm.xml:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面试题"><span class="nav-number">9.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存策略"><span class="nav-number">10.</span> <span class="nav-text">缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存的机制：Map-lt-条件，对象-gt"><span class="nav-number">10.1.</span> <span class="nav-text">缓存的机制：Map&lt;条件，对象&gt;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hibernate工作流程："><span class="nav-number">11.</span> <span class="nav-text">hibernate工作流程：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#懒加载-代理对象"><span class="nav-number">12.</span> <span class="nav-text">懒加载:代理对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hibernate分页"><span class="nav-number">13.</span> <span class="nav-text">hibernate分页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hibernate连接查询–迫切连接"><span class="nav-number">14.</span> <span class="nav-text">hibernate连接查询–迫切连接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">annkee</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user-circle-o"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      <i class="fa fa-eye"></i>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytqQ5Qdo';
+      var conf = '8e4a5d862f328644a285c99fe3655d51';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jOaqcIfvvUu9RC8t0OpMVQdQ-gzGzoHsz", "UfCTOCCng31SxEoH6p8P7c3X");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+<script>
+  $("body").backstretch("https://blog.majunxiang.wang/images/background.jpg");
+</script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+</html>

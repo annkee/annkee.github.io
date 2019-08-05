@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#fff">
+
+
+
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="annkee" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用命令大全">
+<meta property="og:url" content="https://github.com/annkee/2016/12/03/linux/index.html">
+<meta property="og:site_name" content="annkee">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://blog.annkee.top/images/linux.jpg">
+<meta property="og:updated_time" content="2019-07-08T10:37:51.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux常用命令大全">
+<meta name="twitter:image" content="https://blog.annkee.top/images/linux.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/annkee/2016/12/03/linux/"/>
+
+
+
+
+
+  <title>linux常用命令大全 | annkee</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">annkee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/annkee/2016/12/03/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="annkee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="annkee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux常用命令大全</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T00:00:00+08:00">
+                2016-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016/12/03/linux/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2016/12/03/linux/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2016/12/03/linux/" class="leancloud_visitors" data-flag-title="linux常用命令大全">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  12,086
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/linux.jpg" alt="Linux命令" style="width: 100%"></p>
+<a id="more"></a>
+<h1 id="进入带空格的文件或者文件夹"><a href="#进入带空格的文件或者文件夹" class="headerlink" title="进入带空格的文件或者文件夹"></a>进入带空格的文件或者文件夹</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/wangan/桌面/wang an# cd /root</span><br><span class="line">root@ubuntu:~# ls</span><br><span class="line">MyEclipse Professional 2014</span><br><span class="line">root@ubuntu:~# cd MyEclipse\ Professional\ 2014</span><br><span class="line">root@ubuntu:~/MyEclipse Professional 2014# ls</span><br><span class="line">artifacts.xml  dropins       icon.xpm         myeclipse.ini  plugins</span><br><span class="line">binary         epl-v10.html  libcairo-swt.so  notice.html    readme</span><br><span class="line">configuration  features      myeclipse        p2             Uninstaller</span><br><span class="line">root@ubuntu:~/MyEclipse Professional 2014# ls -l</span><br><span class="line">总用量 1068</span><br><span class="line">-rw-r--r--   1 root root 413582 Nov 19 19:20 artifacts.xml</span><br><span class="line">drwxr-xr-x   3 root root   4096 Nov 19 19:20 binary</span><br><span class="line">drwxr-xr-x  13 root root   4096 Nov 19 19:34 configuration</span><br><span class="line">drwxr-xr-x   2 root root   4096 Nov 19 19:20 dropins</span><br><span class="line">-rw-r--r--   1 root root  16536 Jun 30  2013 epl-v10.html</span><br><span class="line">drwxr-xr-x 204 root root  20480 Nov 19 19:20 features</span><br><span class="line">-rw-r--r--   1 root root  55371 Nov 15  2013 icon.xpm</span><br></pre></td></tr></table></figure>
+<h1 id="Linux文件权限详解-文件和目录权限概述"><a href="#Linux文件权限详解-文件和目录权限概述" class="headerlink" title="Linux文件权限详解 文件和目录权限概述"></a>Linux文件权限详解 文件和目录权限概述</h1><p>在linux中的每一个文件或目录都包含有访问权限，这些访问权限决定了谁能访问和如何访问这些文件和目录。</p>
+<p>通过设定权限可以从以下三种访问方式限制访问权限：只允许用户自己访问；允许一个预先指定的用户组中的用户访问；允许系统中的任何用户访问。同时，用户能够控制一个给定的文件或目录的访问程度。一个文件活目录可能有读、写及执行权限。当创建一个文件时，系统会自动地赋予文件所有者读和写的权限，这样可以允许所有者能够显示文件内容和修改文件。文件所有者可以将这些权限改变为任何他想指定的权限。一个文件也许只有读权限，禁止任何修改。文件也可能只有执行权限，允许它想一个程序一样执行。</p>
+<p>三种不同的用户类型能够访问一个目录或者文件：所有着、用户组或其他用户。所有者就是创建文件的用户，用户是所有用户所创建的文件的所有者，用户可以允许所在的用户组能访问用户的文件。通常，用户都组合成用户组，例如，某一类或某一项目中的所有用户都能够被系统管理员归为一个用户组，一个用户能够授予所在用户组的其他成员的文件访问权限。最后，用户也将自己的文件向系统内的所有用户开放，在这种情况下，系统内的所有用户都能够访问用户的目录或文件。在这种意义上，系统内的其他所有用户就是other用户类。<br>每一个用户都有它自身的读、写和执行权限。第一套权限控制访问自己的文件权限，即所有者权限。第二套权限控制用户组访问其中一个用户的文件的权限。第三套权限控制其他所有用户访问一个用户的文件的权限，这三套权限赋予用户不同类型（即所有者、用户组和其他用户）的读、写及执行权限就构成了一个有9种类型的权限组。</p>
+<p>我们可以用-l参数的ls命令显示文件的详细信息，其中包括权限。如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ls -lh</span><br><span class="line">总用量 191M</span><br><span class="line">-rwxrwx--- 1 root plugdev 18M 2007-02-28 18:05 ActionCube_v0.92.tar.bz2</span><br><span class="line">-rwxrwx--- 1 root plugdev 60M 2007-04-30 22:52 nexuiz-223.zip</span><br><span class="line">-rwxrwx--- 1 root plugdev 7.4M 2007-04-25 02:16 stardict-oxford-gb-2.4.2.tar.bz2</span><br><span class="line">-rwxrwx--- 1 root plugdev 102M 2007-05-01 18:22 tremulous-1.1.0-installer.x86.run</span><br><span class="line">-rwxrwx--- 1 root plugdev 4.9M 2007-04-30 14:32 wqy-bitmapfont-0.8.1-7_all.deb.bin</span><br></pre></td></tr></table></figure></p>
+<p>当执行ls -l 或 ls -al 命令后显示的结果中，最前面的第2～10个字符是用来表示权限。第一个字符一般用来区分文件和目录：</p>
+<ul>
+<li>d：表示是一个目录，事实上在ext2fs中，目录是一个特殊的文件。</li>
+<li>-：表示这是一个普通的文件。</li>
+<li>l: 表示这是一个符号链接文件，实际上它指向另一个文件。</li>
+<li>b、c：分别表示区块设备和其他的外围设备，是特殊类型的文件。</li>
+<li>s、p：这些文件关系到系统的数据结构和管道，通常很少见到。</li>
+</ul>
+<h1 id="权限的种类和设置权限的方法。"><a href="#权限的种类和设置权限的方法。" class="headerlink" title="权限的种类和设置权限的方法。"></a>权限的种类和设置权限的方法。</h1><h2 id="一般权限"><a href="#一般权限" class="headerlink" title="一般权限"></a>一般权限</h2><p>第2～10个字符当中的每3个为一组，左边三个字符表示所有者权限，中间3个字符表示与所有者同一组的用户的权限，右边3个字符是其他用户的权限。这三个一组共9个字符，代表的意义如下：</p>
+<ul>
+<li>r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权</li>
+<li>w(Write,写入)：对文件而言，具有新增、修改文件内容的权限；对目录来说，具有删除、移动目录内文件的权限。</li>
+<li>x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。</li>
+</ul>
+<h2 id="表示不具有该项的权限。"><a href="#表示不具有该项的权限。" class="headerlink" title="表示不具有该项的权限。"></a>表示不具有该项的权限。</h2><ul>
+<li>-rwx——: 文件所有者对文件具有读取、写入和执行的权限。</li>
+<li>-rwxr―r–: 文件所有者具有读、写与执行的权限，其他用户则具有读取的权限。</li>
+<li>-rw-rw-r-x: 文件所有者与同组用户对文件具有读写的权限，而其他用户仅具有读取和执行的权限。</li>
+<li>drwx–x–x: 目录所有者具有读写与进入目录的权限,其他用户近能进入该目录，却无法读取任何数据。</li>
+<li>drwx——: 除了目录所有者具有完整的权限之外，其他用户对该目录完全没有任何权限。</li>
+</ul>
+<p>每个用户都拥有自己的专属目录，通常集中放置在/home目录下，这些专属目录的默认权限为rwx——:</p>
+<p>表示目录所有者本身具有所有权限，其他用户无法进入该目录。执行mkdir命令所创建的目录，其默认权限为rwxr-xr-x,用户可以根据需要修改目录的权限。</p>
+<p>此外，默认的权限可用umask命令修改，用法非常简单，只需执行umask 777 命令，便代表屏蔽所有的权限，因而之后建立的文件或目录，其权限都变成000，依次类推。通常root帐号搭配umask命令的数值为022、027和 077，普通用户则是采用002，这样所产生的权限依次为755、750、700、775。有关权限的数字表示法，后面将会详细说明。</p>
+<p>用户登录系统时，用户环境就会自动执行rmask命令来决定文件、目录的默认权限。<br>特殊权限<br>其实文件与目录设置不止这些，还有所谓的特殊权限。由于特殊权限会拥有一些“特权”，因而用户若无特殊需求，不应该启用这些权限，避免安全方面出现严重漏洞，造成黑客入侵，甚至摧毁系统!!!</p>
+<ul>
+<li><p>s或S（SUID,Set UID）：可执行的文件搭配这个权限，便能得到特权，任意存取该文件的所有者能使用的全部系统资源。请注意具备SUID权限的文件，黑客经常利用这种权限，以SUID配上root帐号拥有者，无声无息地在系统中开扇后门，供日后进出使用。</p>
+</li>
+<li><p>s或S（SGID，Set GID）：设置在文件上面，其效果与SUID相同，只不过将文件所有者换成用户组，该文件就可以任意存取整个用户组所能使用的系统资源。</p>
+</li>
+<li><p>T或T（Sticky）：/tmp和 /var/tmp目录供所有用户暂时存取文件，亦即每位用户皆拥有完整的权限进入该目录，去浏览、删除和移动文件。</p>
+</li>
+</ul>
+<p>因为SUID、SGID、Sticky占用x的位置来表示，所以在表示上会有大小写之分。加入同时开启执行权限和SUID、SGID、Sticky，则权限表示字符是小写的：</p>
+<p>-rwsr-sr-t 1 root root 4096 6月 23 08：17 conf</p>
+<p>如果关闭执行权限，则表示字符会变成大写：</p>
+<p>-rwSr-Sr-T 1 root root 4096 6月 23 08：17 conf<br>使用文件管理器来改变文件或目录的权限<br>如果用户要改变一个文件目录的权限，右击要改变权限的文件或者目录，在弹出的快捷菜单中选择“属性”，系统将打开属性对话框</p>
+<p>在“属性”对话框中，单击“权限”标签，就会打开“权限”选项卡。</p>
+<p>在这里你可以修改文件或者目录的所有者、组群和其他用户的权限，而且可以设置特殊权</p>
+<p>对于特殊权限，最好不要设置，不然会带来很严重的安全问题。</p>
+<p>当然，在这里你也可以改变文件和目录的所有者和所属组。<br>使用chmod和数字改变文件或目录的访问权限<br>文件和目录的权限表示，是用rwx这三个字符来代表所有者、用户组和其他用户的权限。有时候，字符似乎过于麻烦，因此还有另外一种方法是以数字来表示权限，而且仅需三个数字。</p>
+<ul>
+<li>r: 对应数值4</li>
+<li>w: 对应数值2</li>
+<li>x：对应数值1</li>
+<li>-：对应数值0</li>
+</ul>
+<p>数字设定的关键是mode的取值，一开始许多初学者会被搞糊涂，其实很简单，我们将rwx看成二进制数，如果有则有1表示，没有则有0表示，<br>那么<code>rwx r-x r--</code>则可以表示成为：</p>
+<p><code>111 101 100</code></p>
+<p>再将其每三位转换成为一个十进制数，就是754。</p>
+<p>例如，我们想让a.txt这个文件的权限为：</p>
+<p>自己 同组用户 其他用户<br>可读 是 是 是<br>可写 是 是<br>可执行</p>
+<p>那么，我们先根据上表得到权限串为：rw-rw-r–，那么转换成二进制数就是110 110 100，再每三位转换成为一个十进制数，就得到664，因此我 们执行命令：</p>
+<p><code>[root@localhost ~]# chmod 664 a.txt</code></p>
+<p>按照上面的规则，rwx合起来就是4+2+1＝7，一个rwxrwxrwx权限全开放的文件，数值表示为777；而完全不开放权限的文件“－－－－－－－－－”其数字表示为000。下面举几个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-rwx------:等于数字表示700。</span><br><span class="line">-rwxr―r--:等于数字表示744。</span><br><span class="line">-rw-rw-r-x:等于数字表示665。</span><br><span class="line">drwx―x―x:等于数字表示711。</span><br><span class="line">drwx------:等于数字表示700。</span><br></pre></td></tr></table></figure></p>
+<p>在文本模式下，可执行chmod命令去改变文件和目录的权限。我们先执行ls -l 看看目录内的情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -l</span><br><span class="line"></span><br><span class="line">总用量 368</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root 12172 8月 15 23:18 conkyrc.sample</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 4 16:32 Desktop</span><br><span class="line">-r--r--r-- 1 root root 331844 10月 22 21:08 libfreetype.so.6</span><br><span class="line">drwxr-xr-x 2 root root 48 8月 12 22:25 MyMusic</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth0</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth1</span><br><span class="line">-rwxr-xr-x 1 root root 512 11月 5 08:08 net.lo</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 6 13:06 vmware</span><br></pre></td></tr></table></figure></p>
+<p>可以看到当然文件conkyrc.sample文件的权限是644,然后把这个文件的权限改成777。执行下面命令</p>
+<p><code>[root@localhost ~]# chmod 777 conkyrc.sample</code></p>
+<p>然后ls -l看一下执行后的结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -l</span><br><span class="line"></span><br><span class="line">总用量 368</span><br><span class="line"></span><br><span class="line">-rwxrwxrwx 1 root root 12172 8月 15 23:18 conkyrc.sample</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 4 16:32 Desktop</span><br><span class="line">-r--r--r-- 1 root root 331844 10月 22 21:08 libfreetype.so.6</span><br><span class="line">drwxr-xr-x 2 root root 48 8月 12 22:25 MyMusic</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth0</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth1</span><br><span class="line">-rwxr-xr-x 1 root root 512 11月 5 08:08 net.lo</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 6 13:06 vmware</span><br></pre></td></tr></table></figure></p>
+<p>可以看到conkyrc.sample文件的权限已经修改为rwxrwxrwx</p>
+<p>如果要加上特殊权限，就必须使用4位数字才能表示。特殊权限的对应数值为：</p>
+<ul>
+<li>s或 S （SUID）：对应数值4。</li>
+<li>s或 S （SGID）：对应数值2。</li>
+<li>t或 T ：对应数值1。</li>
+</ul>
+<p>用同样的方法修改文件权限就可以了</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# chmod 7600 conkyrc.sample</span><br><span class="line">[root@localhost ~]# ls -l</span><br><span class="line"></span><br><span class="line">总用量 368</span><br><span class="line"></span><br><span class="line">-rwS--S--T 1 root root 12172 8月 15 23:18 conkyrc.sample</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 4 16:32 Desktop</span><br><span class="line">-r--r--r-- 1 root root 331844 10月 22 21:08 libfreetype.so.6</span><br><span class="line">drwxr-xr-x 2 root root 48 8月 12 22:25 MyMusic</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth0</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth1</span><br><span class="line">-rwxr-xr-x 1 root root 512 11月 5 08:08 net.lo</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 6 13:06 vmware</span><br></pre></td></tr></table></figure></p>
+<p>加入想一次修改某个目录下所有文件的权限，包括子目录中的文件权限也要修改，要使用参数－R表示启动递归处理。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# chmod 777 /home/user 注：仅把/home/user目录的权限设置为rwxrwxrw</span><br><span class="line">[root@localhost ~]# chmod -R 777 /home/user 注：表示将整个/home/user目录与其中的文件和子目录的权限都设置为rwxrwxrwx</span><br></pre></td></tr></table></figure></p>
+<p>使用命令chown改变目录或文件的所有权<br>文件与目录不仅可以改变权限，其所有权及所属用户组也能修改，和设置权限类似，用户可以通过图形界面来设置，或执行chown命令来修改。</p>
+<p>我们先执行ls -l看看目录情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls -l</span><br><span class="line"></span><br><span class="line">总用量 368</span><br><span class="line"></span><br><span class="line">-rwxrwxrwx 1 root root 12172 8月 15 23:18 conkyrc.sample</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 4 16:32 Desktop</span><br><span class="line">-r--r--r-- 1 root root 331844 10月 22 21:08 libfreetype.so.6</span><br><span class="line">drwxr-xr-x 2 root root 48 8月 12 22:25 MyMusic</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth0</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth1</span><br><span class="line">-rwxr-xr-x 1 root root 512 11月 5 08:08 net.lo</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 6 13:06 vmware</span><br></pre></td></tr></table></figure></p>
+<p>可以看到conkyrc.sample文件的所属用户组为root，所有者为root。<br>执行下面命令，把conkyrc.sample文件的所有权转移到用户user:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# chown user conkyrc.sample</span><br><span class="line">[root@localhost ~]# ls -l</span><br><span class="line"></span><br><span class="line">总用量 368</span><br><span class="line"></span><br><span class="line">-rwxrwxrwx 1 user root 12172 8月 15 23:18 conkyrc.sample</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 4 16:32 Desktop</span><br><span class="line">-r--r--r-- 1 root root 331844 10月 22 21:08 libfreetype.so.6</span><br><span class="line">drwxr-xr-x 2 root root 48 8月 12 22:25 MyMusic</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth0</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth1</span><br><span class="line">-rwxr-xr-x 1 root root 512 11月 5 08:08 net.lo</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 6 13:06 vmware</span><br></pre></td></tr></table></figure></p>
+<p>要改变所属组，可使用下面命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# chown :users conkyrc.sample</span><br><span class="line">[root@localhost ~]# ls -l</span><br><span class="line"></span><br><span class="line">总用量 368</span><br><span class="line"></span><br><span class="line">-rwxrwxrwx 1 user users 12172 8月 15 23:18 conkyrc.sample</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 4 16:32 Desktop</span><br><span class="line">-r--r--r-- 1 root root 331844 10月 22 21:08 libfreetype.so.6</span><br><span class="line">drwxr-xr-x 2 root root 48 8月 12 22:25 MyMusic</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth0</span><br><span class="line">-rwxr-xr-x 1 root root 9776 11月 5 08:08 net.eth1</span><br><span class="line">-rwxr-xr-x 1 root root 512 11月 5 08:08 net.lo</span><br><span class="line">drwxr-xr-x 2 root root 48 9月 6 13:06 vmware</span><br></pre></td></tr></table></figure></p>
+<p>要修改目录的权限，使用－R参数就可以了，方法和前面一样。</p>
+<h1 id="linux面试"><a href="#linux面试" class="headerlink" title="linux面试"></a>linux面试</h1><ol>
+<li>如何暂停一个正在运行的进程，让其在后台运行？</li>
+</ol>
+<p>答案：为了停止正在运行的进程，让其在后台运行，我们可以使用组合键 Ctrl+Z。</p>
+<ol start="2">
+<li>什么是安装Linux所需的最小分区数量，以及如何查看系统启动信息？</li>
+</ol>
+<p>答案：单独一个/root分区足以执行所有的系统任务，但是强烈建议安装Linux时，需要至少三个分区：/root,/boot,/swap。一个IDE硬盘驱动器支持高达63个分区，SCSI硬盘驱动器支持超过15个分区。<br>为了检查启动信息，我们可以使用cat或者dmesg命令，如下所示：<br><code>#cat /var/log/messages</code>或者<code>#dmesg</code></p>
+<ol start="3">
+<li>在你的Linux机器上跟踪系统事件的守护进程名是什么？</li>
+</ol>
+<p>答案：’syslogd’，它负责跟踪系统信息，并将跟踪日志存储在特定的日志文件里。</p>
+<ol start="4">
+<li>在/root分区运行’fsck’命令的最低要求是什么？</li>
+</ol>
+<p>答案：/root分区必须挂载为只读模式，而不是读写模式</p>
+<ol start="5">
+<li>如何分层复制/home目录到另一个目录？</li>
+</ol>
+<p>答案：Linux的’cpio’命令起到了效果。’cpio’可以分层地复制文件和目录层次结构到另一个位置。</p>
+<ol start="6">
+<li>在Linux中，怎样实现日志文件的自动替换？</li>
+</ol>
+<p>答案：’logrotate’提供日志自动替换功能。</p>
+<ol start="7">
+<li>怎样知道Linux中是谁在安排工作？</li>
+</ol>
+<p>答案：使用’at’命令加上’-l’选项，就可以查出。</p>
+<ol start="8">
+<li>如何在不解压tar包的前提下，查看包里的内容？</li>
+</ol>
+<p>答案：使用’tar -tvf’。选项‘t’(显示内容)，‘v’（详细报告tar处理的文件信息），‘f’（使用档案文件或者设备）</p>
+<ol start="9">
+<li>什么是页面错误，它是怎么发生的？</li>
+</ol>
+<p>答案：当一个程序请求内存中不存在的数据时，就会产生页面错误，导致的结果就是程序停止。</p>
+<ol start="10">
+<li>什么是在程序中返回代码？</li>
+</ol>
+<p>答案：返回代码是shell的特性。返回代码显示了程序的状态，一个成功的程序执行后返回‘0’，&amp;&amp;可以用来决定那个应用程序先执行</p>
+<ol start="11">
+<li>问： 当你需要给命令绑定一个宏或者按键的时候，应该怎么做呢？<br>答：可以使用bind命令，bind可以很方便地在shell中实现宏或按键的绑定。<br>在进行按键绑定的时候，我们需要先获取到绑定按键对应的字符序列。<br>比如获取F12的字符序列获取方法如下：先按下Ctrl+V,然后按下F12 .我们就可以得到F12的字符序列 ^[[24~。<br>接着使用bind进行绑定。</li>
+</ol>
+<p>[root@localhost ~]# bind ‘”\e[24~”:”date”‘<br>注意：相同的按键在不同的终端或终端模拟器下可能会产生不同的字符序列。<br>【附】也可以使用showkey -a命令查看按键对应的字符序列。<br>推荐阅读：不同应用场景的10个Linux面试问题与解答 <a href="http://www.linuxidc.com/Linux/2014-04/99710.htm" target="_blank" rel="noopener">http://www.linuxidc.com/Linux/2014-04/99710.htm</a></p>
+<ol start="12">
+<li><p>问： 如果一个linux新手想要知道当前系统支持的所有命令的列表，他需要怎么做？<br>答： 使用命令compgen ­-c，可以打印出所有支持的命令列表。</p>
+</li>
+<li><p>问：如果你的助手想要打印出当前的目录栈，你会建议他怎么做？<br>答：使用Linux 命令dirs可以将当前的目录栈打印出来。<br>[root@localhost ~]# dirs<br>/usr/share/X11<br>【附】：目录栈通过pushd popd 来操作。</p>
+</li>
+<li>问： 你的系统目前有许多正在运行的任务，在不重启机器的条件下，有什么方法可以把所有正在运行的进程移除呢？<br>答： 使用linux命令 ’disown -r ’可以将所有正在运行的进程移除。</li>
+<li>问： bash shell 中的hash 命令有什么作用？<br>答：linux命令’hash’管理着一个内置的哈希表，记录了已执行过的命令的完整路径, 用该命令可以打印出你所使用过的命令以及执行的次数。<br>[root@localhost ~]# hash<br>hits command<br>2 /bin/ls<br>2 /bin/su</li>
+</ol>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ls 列出当前目录文件（不包括隐含文件） </span><br><span class="line">ls -a 列出当前目录文件（包括隐含文件） </span><br><span class="line">ls -l 列出当前目录下文件的详细信息 </span><br><span class="line"></span><br><span class="line">cd .. 回当前目录的上一级目录 </span><br><span class="line">cd - 回上一次所在的目录 </span><br><span class="line">cd ~ 或 cd 回当前用户的宿主目录 </span><br><span class="line">mkdir 目录名 创建一个目录 </span><br><span class="line">rmdir 空目录名 删除一个空目录 </span><br><span class="line">rm 文件名 文件名 删除一个文件或多个文件 </span><br><span class="line">rm -rf 非空目录名 删除一个非空目录下的一切 </span><br><span class="line"></span><br><span class="line">mv 路经/文件 /经/文件移动相对路经下的文件到绝对路经下 </span><br><span class="line">mv 文件名 新名称 在当前目录下改名 </span><br><span class="line">find 路经 -name “字符串” 查找路经所在范围内满足字符串匹配的文件和目录</span><br></pre></td></tr></table></figure>
+<h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">fdisk fdisk -l 查看系统分区信息 </span><br><span class="line">fdisk fdisk /dev/sdb 为一块新的SCSI硬盘进行分区 </span><br><span class="line">chown chown root /home 把/home的属主改成root用户 </span><br><span class="line">chgrp chgrp root /home 把/home的属组改成root组 </span><br><span class="line"></span><br><span class="line">Useradd 创建一个新的用户 </span><br><span class="line">Groupadd 组名 创建一个新的组 </span><br><span class="line">Passwd 用户名 为用户创建密码 </span><br><span class="line">Passwd -d用户名 删除用户密码也能登陆 </span><br><span class="line">Passwd -S用户名 查询账号密码 </span><br><span class="line">Usermod -l 新用户名 老用户名 为用户改名 </span><br><span class="line">Userdel–r 用户名 删除用户一切 </span><br><span class="line"></span><br><span class="line">service [servicename] start/stop/restart 系统服务控制操作 </span><br><span class="line">/etc/init.d/[servicename] start/stop/restart 系统服务控制操作 </span><br><span class="line"></span><br><span class="line">uname -a 查看内核版本 </span><br><span class="line">cat /etc/issue 查看ubuntu版本 </span><br><span class="line">lsusb 查看usb设备 </span><br><span class="line">sudo ethtool eth0 查看网卡状态 </span><br><span class="line">cat /proc/cpuinfo 查看cpu信息 </span><br><span class="line">lshw 查看当前硬件信息 </span><br><span class="line">sudo fdisk -l 查看磁盘信息 </span><br><span class="line">df -h 查看硬盘剩余空间 </span><br><span class="line">free -m 查看当前的内存使用情况 </span><br><span class="line">ps -A 查看当前有哪些进程 </span><br><span class="line">kill 进程号(就是ps -A中的第一列的数字)或者 killall 进程名( 杀死一个进程) </span><br><span class="line">kill -9 进程号 强制杀死一个进程 </span><br><span class="line"></span><br><span class="line">reboot Init 6 重启LINUX系统 </span><br><span class="line">Halt Init 0 Shutdown –h now 关闭LINUX系统</span><br></pre></td></tr></table></figure>
+<h2 id="打包-解压"><a href="#打包-解压" class="headerlink" title="打包/解压"></a>打包/解压</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -c 创建包 –x 释放包 -v 显示命令过程 –z 代表压缩包 </span><br><span class="line">tar –cvf benet.tar /home/benet 把/home/benet目录打包 </span><br><span class="line">tar –zcvf benet.tar.gz /mnt 把目录打包并压缩 </span><br><span class="line">tar –zxvf benet.tar.gz 压缩包的文件解压恢复 </span><br><span class="line">tar –jxvf benet.tar.bz2 解压缩</span><br></pre></td></tr></table></figure>
+<h2 id="make编译"><a href="#make编译" class="headerlink" title="make编译"></a>make编译</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make 编译 </span><br><span class="line">make install 安装编译好的源码包</span><br></pre></td></tr></table></figure>
+<h2 id="apt命令"><a href="#apt命令" class="headerlink" title="apt命令"></a>apt命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search package 搜索包 </span><br><span class="line">apt-cache show package 获取包的相关信息，如说明、大小、版本等 </span><br><span class="line">sudo apt-get install package 安装包 </span><br><span class="line">sudo apt-get install package - - reinstall 重新安装包 </span><br><span class="line">sudo apt-get -f install 修复安装”-f = –fix-missing” </span><br><span class="line">sudo apt-get remove package 删除包 </span><br><span class="line">sudo apt-get remove package - - purge 删除包，包括删除配置文件等 </span><br><span class="line">sudo apt-get update 更新源 </span><br><span class="line">sudo apt-get upgrade 更新已安装的包 </span><br><span class="line">sudo apt-get dist-upgrade 升级系统 </span><br><span class="line">sudo apt-get dselect-upgrade 使用 dselect 升级 </span><br><span class="line">apt-cache depends package 了解使用依赖 </span><br><span class="line">apt-cache rdepends package 是查看该包被哪些包依赖 </span><br><span class="line">sudo apt-get build-dep package 安装相关的编译环境 </span><br><span class="line">apt-get source package 下载该包的源代码 </span><br><span class="line">sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包 </span><br><span class="line">sudo apt-get check 检查是否有损坏的依赖 </span><br><span class="line">sudo apt-get clean 清理所有软件缓存（即缓存在/var/cache/apt/archives目录里的deb包）</span><br></pre></td></tr></table></figure>
+<p>查看软件xxx安装内容<br><code>#dpkg -L xxx</code></p>
+<p>查找软件<br><code>#apt-cache search 正则表达式</code><br>查找文件属于哪个包<br><code>#dpkg -S filename apt-file search filename</code></p>
+<p>查询软件xxx依赖哪些包<br><code>#apt-cache depends xxx</code></p>
+<p>查询软件xxx被哪些包依赖<br><code>#apt-cache rdepends xxx</code></p>
+<p>增加一个光盘源<br><code>#sudo apt-cdrom add</code></p>
+<p>系统升级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#sudo apt-get update </span><br><span class="line">#sudo apt-get upgrade </span><br><span class="line">#sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
+<p>清除所以删除包的残余配置文件<br><code>#dpkg -l |grep ^rc|awk ‘{print $2}’ |tr [&quot;\n&quot;] [&quot; “]|sudo xargs dpkg -P -</code></p>
+<p>编译时缺少h文件的自动处理<br><code>#sudo auto-apt run ./configure</code></p>
+<p>查看安装软件时下载包的临时存放目录<br><code>#ls /var/cache/apt/archives</code></p>
+<p>备份当前系统安装的所有包的列表<br><code>#dpkg –get-selections | grep -v deinstall &gt; ~/somefile</code></p>
+<p>从上面备份的安装包的列表文件恢复所有包<br><code>#dpkg –set-selections &lt; ~/somefile sudo dselect</code></p>
+<p>清理旧版本的软件缓存<br><code>#sudo apt-get autoclean</code></p>
+<p>清理所有软件缓存 </p>
+<pre><code>#sudo apt-get clean 
+</code></pre><p>删除系统不再使用的孤立软件 </p>
+<pre><code>#sudo apt-get autoremove 
+</code></pre><p>查看包在服务器上面的地址 </p>
+<pre><code>#apt-get -qq –print-uris install ssh | cut -d\’ -f2 
+</code></pre><p>系统<br>查看内核 </p>
+<pre><code>#uname -a 
+</code></pre><p>查看Ubuntu版本 </p>
+<pre><code>#cat /etc/issue 
+</code></pre><p>查看内核加载的模块 </p>
+<pre><code>#lsmod 
+</code></pre><p>查看PCI设备 </p>
+<pre><code>#lspci 
+</code></pre><p>查看USB设备 </p>
+<pre><code>#lsusb 
+</code></pre><p>查看网卡状态 </p>
+<pre><code>#sudo ethtool eth0 
+</code></pre><p>查看CPU信息 </p>
+<pre><code>#cat /proc/cpuinfo 
+</code></pre><p>显示当前硬件信息 </p>
+<pre><code>#lshw 
+</code></pre><p>硬盘<br>查看硬盘的分区 </p>
+<pre><code>#sudo fdisk -l 
+</code></pre><p>查看IDE硬盘信息 </p>
+<pre><code>#sudo hdparm -i /dev/hda 
+</code></pre><p>查看STAT硬盘信息 </p>
+<pre><code>#sudo hdparm -I /dev/sda 
+</code></pre><p>或 </p>
+<pre><code>#sudo apt-get install blktool 
+#sudo blktool /dev/sda id 
+</code></pre><p>查看硬盘剩余空间 </p>
+<pre><code>#df -h 
+#df -H 
+</code></pre><p>查看目录占用空间 </p>
+<pre><code>#du -hs 目录名 
+</code></pre><p>优盘没法卸载 </p>
+<pre><code>#sync fuser -km /media/usbdisk 
+</code></pre><p>内存<br>查看当前的内存使用情况 </p>
+<pre><code>#free -m 
+</code></pre><p>进程<br>查看当前有哪些进程 </p>
+<pre><code>#ps -A 
+</code></pre><p>中止一个进程 </p>
+<pre><code>#kill 进程号(就是ps -A中的第一列的数字) 或者 killall 进程名 
+</code></pre><p>强制中止一个进程(在上面进程中止不成功的时候使用) </p>
+<pre><code>#kill -9 进程号 或者 killall -9 进程名 
+</code></pre><p>图形方式中止一个程序 </p>
+<pre><code>#xkill 出现骷髅标志的鼠标，点击需要中止的程序即可 
+</code></pre><p>查看当前进程的实时状况 </p>
+<pre><code>#top 
+</code></pre><p>查看进程打开的文件 </p>
+<pre><code>#lsof -p 
+</code></pre><p>如何设置动态域名 </p>
+<pre><code>#首先去http://www.3322.org申请一个动态域名 
+#然后修改 /etc/ppp/ip-up 增加拨号时更新域名指令 sudo vim /etc/ppp/ip-up 
+#在最后增加如下行 w3m -no-cookie -dump 
+</code></pre><p>网络<br>根据IP查网卡地址 </p>
+<pre><code>#arping IP地址 
+</code></pre><p>查看当前IP地址 </p>
+<pre><code>#ifconfig eth0 |awk ‘/inet/ {split($2,x,&quot;:&quot;);print x[2]}’ 
+</code></pre><p>查看当前外网的IP地址 </p>
+<pre><code>#w3m -no-cookie -dumpwww.edu.cn|grep-o‘[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}’ 
+#w3m -no-cookie -dumpwww.xju.edu.cn|grep-o’[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}’ 
+#w3m -no-cookie -dump ip.loveroot.com|grep -o’[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}’ 
+</code></pre><p>查看当前监听80端口的程序 </p>
+<pre><code>#lsof -i :80 
+</code></pre><p>查看当前网卡的物理地址 </p>
+<pre><code>#arp -a | awk ‘{print $4}’ ifconfig eth0 | head -1 | awk ‘{print $5}’ 
+</code></pre><p>立即让网络支持nat </p>
+<pre><code>#sudo echo 1 &gt; /proc/sys/net/ipv4/ip_forward 
+#sudo iptables -t nat -I POSTROUTING -j MASQUERADE 
+</code></pre><p>查看路由信息 </p>
+<pre><code>#netstat -rn sudo route -n 
+</code></pre><p>手工增加删除一条路由 </p>
+<pre><code>#sudo route add -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1 
+#sudo route del -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1 
+</code></pre><p>修改网卡MAC地址的方法 </p>
+<pre><code>#sudo ifconfig eth0 down 关闭网卡 
+#sudo ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE 然后改地址 
+#sudo ifconfig eth0 up 然后启动网卡 
+</code></pre><p>统计当前IP连接的个数 </p>
+<pre><code>#netstat -na|grep ESTABLISHED|awk ‘{print $5}’|awk -F: ‘{print $1}’|sort|uniq -c|sort -r -n 
+#netstat -na|grep SYN|awk ‘{print $5}’|awk -F: ‘{print $1}’|sort|uniq -c|sort -r -n 
+</code></pre><p>统计当前20000个IP包中大于100个IP包的IP地址 </p>
+<pre><code>#tcpdump -tnn -c 20000 -i eth0 | awk -F “.&quot; ‘{print $1″.&quot;$2″.&quot;$3″.&quot;$4}’ | sort | uniq -c | sort -nr | awk ‘ $1 &gt; 100 ‘ 
+</code></pre><p>屏蔽IPV6 </p>
+<pre><code>#echo “blacklist ipv6″ | sudo tee /etc/modprobe.d/blacklist-ipv6 
+</code></pre><p>服务<br>添加一个服务 </p>
+<pre><code>#sudo update-rc.d 服务名 defaults 99 
+</code></pre><p>删除一个服务 </p>
+<pre><code>#sudo update-rc.d 服务名 remove 
+</code></pre><p>临时重启一个服务 </p>
+<pre><code>#/etc/init.d/服务名 restart 
+</code></pre><p>临时关闭一个服务 </p>
+<pre><code>#/etc/init.d/服务名 stop 
+</code></pre><p>临时启动一个服务 </p>
+<pre><code>#/etc/init.d/服务名 start 
+</code></pre><p>设置<br>配置默认Java使用哪个 </p>
+<pre><code>#sudo update-alternatives –config java 
+</code></pre><p>修改用户资料 </p>
+<p>#sudo chfn userid </p>
+<p>给apt设置代理 </p>
+<pre><code>#export http_proxy=http://xx.xx.xx.xx:xxx 
+</code></pre><p>修改系统登录信息 </p>
+<pre><code>#sudo vim /etc/motd 
+</code></pre><p>中文转换文件名由GBK为UTF8 </p>
+<pre><code>#sudo apt-get install convmv convmv -r -f cp936 -t utf8 –notest –nosmart * 
+</code></pre><p>批量转换src目录下的所有文件内容由GBK到UTF8 </p>
+<pre><code>#find src -type d -exec mkdir -p utf8/{} \; find src -type f -exec iconv -f GBK -t UTF-8 {} -o utf8/{} \; mv utf8/* src rm -fr utf8 
+</code></pre><p>转换文件内容由GBK到UTF8 </p>
+<pre><code>#iconv -f gbk -t utf8 $i &gt; newfile 
+</code></pre><p>转换 mp3 标签编码 </p>
+<pre><code>#sudo apt-get install python-mutagen find . -iname “*.mp3&quot; -execdir mid3iconv -e GBK {} \; 
+</code></pre><p>控制台下显示中文 </p>
+<pre><code>#sudo apt-get install zhcon 使用时，输入zhcon即可 
+</code></pre><p>文件<br>快速查找某个文件 </p>
+<pre><code>#whereis filename 
+#find 目录 -name 文件名 
+</code></pre><p>查看文件类型 </p>
+<pre><code>#file filename 
+</code></pre><p>显示xxx文件倒数6行的内容 </p>
+<pre><code>#tail -n 6 xxx 
+</code></pre><p>让tail不停地读地最新的内容 </p>
+<pre><code>#tail -n 10 -f /var/log/apache2/access.log 
+</code></pre><p>查看文件中间的第五行（含）到第10行（含）的内容 </p>
+<pre><code>#sed -n ‘5,10p’ /var/log/apache2/access.log 
+</code></pre><p>查找包含xxx字符串的文件 </p>
+<pre><code>#grep -l -r xxx . 
+</code></pre><p>全盘搜索文件(桌面可视化)<br>    gnome-search-tool </p>
+<p>查找关于xxx的命令 </p>
+<pre><code>#apropos xxx man -k xxx 
+</code></pre><p>通过ssh传输文件 </p>
+<pre><code>#scp -rp /path/filenameusername@remoteIP:/path 
+#将本地文件拷贝到服务器上 
+#scp -rpusername@remoteIP:/path/filename/path 
+#将远程文件从服务器下载到本地 
+</code></pre><p>查看某个文件被哪些应用程序读写 </p>
+<pre><code>#lsof 文件名 
+</code></pre><p>把所有文件的后辍由rm改为rmvb </p>
+<pre><code>#rename ’s/.rm$/.rmvb/’ * 
+</code></pre><p>把所有文件名中的大写改为小写 </p>
+<pre><code>#rename ‘tr/A-Z/a-z/’ * 
+</code></pre><p>删除特殊文件名的文件，如文件名：–help.txt </p>
+<pre><code>#rm — –help.txt 或者 rm ./–help.txt 
+</code></pre><p>查看当前目录的子目录 </p>
+<pre><code>#ls -d */. 或 echo */. 
+</code></pre><p>将当前目录下最近30天访问过的文件移动到上级back目录 </p>
+<pre><code>#find . -type f -atime -30 -exec mv {} ../back \; 
+</code></pre><p>将当前目录下最近2小时到8小时之内的文件显示出来 </p>
+<pre><code>#find . -mmin +120 -mmin -480 -exec more {} \; 
+</code></pre><p>删除修改时间在30天之前的所有文件 </p>
+<pre><code>#find . -type f -mtime +30 -mtime -3600 -exec rm {} \; 
+</code></pre><p>查找guest用户的以avi或者rm结尾的文件并删除掉 </p>
+<pre><code>#find . -name ‘*.avi’ -o -name ‘*.rm’ -user ‘guest’ -exec rm {} \; 
+</code></pre><p>查找的不以java和xml结尾,并7天没有使用的文件删除掉 </p>
+<pre><code>#find . ! -name *.java ! -name ‘*.xml’ -atime +7 -exec rm {} \; 
+</code></pre><p>统计当前文件个数 </p>
+<pre><code>#ls /usr/bin|wc -w 
+</code></pre><p>统计当前目录个数 </p>
+<pre><code>#ls -l /usr/bin|grep ^d|wc -l 
+</code></pre><p>显示当前目录下2006-01-01的文件名 </p>
+<pre><code>#ls -l |grep 2006-01-01 |awk ‘{print $8}’ 
+</code></pre><p>FTP<br>上传下载文件工具-filezilla </p>
+<pre><code>#sudo apt-get install filezilla 
+</code></pre><p>filezilla无法列出中文目录？<br>站点-&gt;字符集-&gt;自定义-&gt;输入：GBK </p>
+<p>本地中文界面<br>1）下载filezilla中文包到本地目录，如~/<br>2）#unrar x Filezilla3_zhCN.rar<br>3) 如果你没有unrar的话，请先安装rar和unrar </p>
+<pre><code>#sudo apt-get install rar unrar 
+#sudo ln -f /usr/bin/rar /usr/bin/unrar 
+</code></pre><p>4）先备份原来的语言包,再安装；实际就是拷贝一个语言包。 </p>
+<pre><code>#sudo cp /usr/share/locale/zh_CN/filezilla.mo /usr/share/locale/zh_CN/filezilla.mo.bak 
+#sudo cp ~/locale/zh_CN/filezilla.mo /usr/share/locale/zh_CN/filezilla.mo 
+</code></pre><p>5）重启filezilla,即可！ </p>
+<p>解压缩<br>解压缩 xxx.tar.gz </p>
+<pre><code>#tar -zxvf xxx.tar.gz 
+</code></pre><p>解压缩 xxx.tar.bz2 </p>
+<pre><code>#tar -jxvf xxx.tar.bz2 
+</code></pre><p>压缩aaa bbb目录为xxx.tar.gz </p>
+<pre><code>#tar -zcvf xxx.tar.gz aaa bbb 
+</code></pre><p>压缩aaa bbb目录为xxx.tar.bz2 </p>
+<pre><code>#tar -jcvf xxx.tar.bz2 aaa bbb 
+</code></pre><p>解压缩 RAR 文件<br>1) 先安装 </p>
+<pre><code>#sudo apt-get install rar unrar 
+#sudo ln -f /usr/bin/rar /usr/bin/unrar 
+</code></pre><p>2) 解压 </p>
+<pre><code>#unrar x aaaa.rar 
+</code></pre><p>Nautilus<br>显示隐藏文件<br>Ctrl+h </p>
+<p>显示地址栏<br>Ctrl+l </p>
+<p>特殊 URI 地址 </p>
+<ul>
+<li>computer:/// - 全部挂载的设备和网络 </li>
+<li>network:/// - 浏览可用的网络 </li>
+<li>burn:/// - 一个刻录 CDs/DVDs 的数据虚拟目录 </li>
+<li>smb:/// - 可用的 windows/samba 网络资源 </li>
+<li>x-nautilus-desktop:/// - 桌面项目和图标 </li>
+<li>file:///- 本地文件 </li>
+<li>trash:/// - 本地回收站目录 </li>
+<li>ftp:// - FTP 文件夹 </li>
+<li>ssh:// - SSH 文件夹 </li>
+<li>fonts:/// - 字体文件夹，可将字体文件拖到此处以完成安装 </li>
+<li>themes:/// - 系统主题文件夹 </li>
+</ul>
+<p>查看已安装字体<br>在nautilus的地址栏里输入”fonts:///“，就可以查看本机所有的fonts </p>
+<p>程序<br>详细显示程序的运行信息 </p>
+<pre><code>#strace -f -F -o outfile 
+</code></pre><p>日期和时间 </p>
+<p>设置日期 </p>
+<pre><code>#date -s mm/dd/yy 
+</code></pre><p>设置时间 </p>
+<pre><code>#date -s HH:MM 
+</code></pre><p>将时间写入CMOS </p>
+<pre><code>#hwclock –systohc 
+</code></pre><p>读取CMOS时间 </p>
+<pre><code>#hwclock –hctosys 
+</code></pre><p>从服务器上同步时间 </p>
+<pre><code>#sudo ntpdate time.nist.gov 
+#sudo ntpdate time.windows.com 
+</code></pre><p>控制台 </p>
+<p>不同控制台间切换<br>Ctrl + ALT + ← Ctrl + ALT + → </p>
+<p>指定控制台切换<br>Ctrl + ALT + Fn(n:1~7) </p>
+<p>控制台下滚屏<br>SHIFT + pageUp/pageDown </p>
+<p>控制台抓图 </p>
+<pre><code>#setterm -dump n(n:1~7) 
+</code></pre><p>数据库<br>mysql的数据库存放在地方 </p>
+<pre><code>#/var/lib/mysql 
+</code></pre><p>从mysql中导出和导入数据 </p>
+<pre><code>#mysqldump 数据库名 &gt; 文件名 #导出数据库 
+#mysqladmin create 数据库名 #建立数据库 
+#mysql 数据库名 &lt; 文件名 #导入数据库 
+</code></pre><p>忘了mysql的root口令怎么办 </p>
+<pre><code>#sudo /etc/init.d/mysql stop 
+#sudo mysqld_safe –skip-grant-tables 
+#sudo mysqladmin -u user password ‘newpassword&quot; 
+#sudo mysqladmin flush-privileges 
+</code></pre><p>修改mysql的root口令 </p>
+<pre><code>#sudo mysqladmin -uroot -p password ‘你的新密码’ 
+</code></pre><p>其它<br>下载网站文档 </p>
+<pre><code>#wget -r -p -np -khttp://www.21cn.com 
+</code></pre><p>· r：在本机建立服务器端目录结构；<br>· -p: 下载显示HTML文件的所有图片；<br>· -np：只下载目标站点指定目录及其子目录的内容；<br>· -k: 转换非相对链接为相对链接。 </p>
+<p>如何删除Totem电影播放机的播放历史记录 </p>
+<pre><code>#rm ~/.recently-used 
+</code></pre><p>如何更换gnome程序的快捷键<br>点击菜单，鼠标停留在某条菜单上，键盘输入任意你所需要的键，可以是组合键，会立即生效； 如果要清除该快捷键，请使用backspace </p>
+<p>vim 如何显示彩色字符 </p>
+<pre><code>#sudo cp /usr/share/vim/vimcurrent/vimrc_example.vim /usr/share/vim/vimrc 
+</code></pre><p>如何在命令行删除在会话设置的启动程序 </p>
+<pre><code>#cd ~/.config/autostart rm 需要删除启动程序 
+</code></pre><p>如何提高wine的反应速度 </p>
+<pre><code>#sudo sed -ie ‘/GBK/,/^}/d’ /usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE 
+</code></pre><p>#chgrp<br>[语法]: chgrp [-R] 文件组 文件…<br>[说明]： 文件的GID表示文件的文件组，文件组可用数字表示， 也可用一个有效的组名表示，此命令改变一个文件的GID，可参看chown。<br>-R 递归地改变所有子目录下所有文件的存取模式<br>[例子]: </p>
+<pre><code>#chgrp group file 将文件 file 的文件组改为 group 
+</code></pre><p>#chmod<br>[语法]: chmod [-R] 模式 文件…<br>或 chmod [ugoa] {+|-|=} [rwxst] 文件…<br>[说明]: 改变文件的存取模式，存取模式可表示为数字或符号串，例如： </p>
+<pre><code>#chmod nnnn file ， n为0-7的数字，意义如下: 
+</code></pre><p>4000 运行时可改变UID<br>2000 运行时可改变GID<br>1000 置粘着位<br>0400 文件主可读<br>0200 文件主可写<br>0100 文件主可执行<br>0040 同组用户可读<br>0020 同组用户可写<br>0010 同组用户可执行<br>0004 其他用户可读<br>0002 其他用户可写<br>0001 其他用户可执行<br>nnnn 就是上列数字相加得到的，例如 chmod 0777 file 是指将文件 file 存取权限置为所有用户可读可写可执行。<br>-R 递归地改变所有子目录下所有文件的存取模式<br>u 文件主<br>g 同组用户<br>o 其他用户<br>a 所有用户 </p>
+<ul>
+<li>增加后列权限 </li>
+</ul>
+<ul>
+<li>取消后列权限<br>= 置成后列权限<br>r 可读<br>w 可写<br>x 可执行<br>s 运行时可置UID<br>t 运行时可置GID<br>[例子]:<br>  #chmod 0666 file1 file2 将文件 file1 及 file2 置为所有用户可读可写<br>  #chmod u+x file 对文件 file 增加文件主可执行权限<br>  #chmod o-rwx 对文件file 取消其他用户的所有权限 </li>
+</ul>
+<p>#chown<br>[语法]: chown [-R] 文件主 文件…<br>[说明]: 文件的UID表示文件的文件主，文件主可用数字表示， 也可用一个有效的用户名表示，此命令改变一个文件的UID，仅当此文件的文件主或超级用户可使用。<br>-R 递归地改变所有子目录下所有文件的存取模式<br>[例子]: </p>
+<pre><code>#chown mary file 将文件 file 的文件主改为 mary 
+#chown 150 file 将文件 file 的UID改为150 
+</code></pre><p>Ubuntu命令行下修改网络配置<br>以eth0为例 </p>
+<ol>
+<li>以DHCP方式配置网卡<br>编辑文件/etc/network/interfaces:<br> #sudo vi /etc/network/interfaces<br>并用下面的行来替换有关eth0的行: </li>
+</ol>
+<h1 id="The-primary-network-interface-use-DHCP-to-find-our-address"><a href="#The-primary-network-interface-use-DHCP-to-find-our-address" class="headerlink" title="The primary network interface - use DHCP to find our address"></a>The primary network interface - use DHCP to find our address</h1><p>auto eth0<br>iface eth0 inet dhcp<br>用下面的命令使网络设置生效: </p>
+<pre><code>#sudo /etc/init.d/networking restart 
+</code></pre><p>当然,也可以在命令行下直接输入下面的命令来获取地址 </p>
+<pre><code>#sudo dhclient eth0 
+</code></pre><ol start="2">
+<li>为网卡配置静态IP地址<br>编辑文件/etc/network/interfaces:<br>#sudo vi /etc/network/interfaces<br>并用下面的行来替换有关eth0的行: </li>
+</ol>
+<h1 id="The-primary-network-interface"><a href="#The-primary-network-interface" class="headerlink" title="The primary network interface"></a>The primary network interface</h1><p>auto eth0<br>iface eth0 inet static<br>address 192.168.3.90<br>gateway 192.168.3.1<br>netmask 255.255.255.0<br>network 192.168.3.0<br>broadcast 192.168.3.255<br>将上面的ip地址等信息换成你自己就可以了. </p>
+<p>用下面的命令使网络设置生效: </p>
+<pre><code>#sudo /etc/init.d/networking restart 
+</code></pre><ol start="3">
+<li>设定第二个IP地址(虚拟IP地址)<br>编辑文件/etc/network/interfaces:<br> #sudo vi /etc/network/interfaces<br>在该文件中添加如下的行: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">auto eth0:1 </span><br><span class="line">iface eth0:1 inet static </span><br><span class="line">address 192.168.1.60 </span><br><span class="line">netmask 255.255.255.0 </span><br><span class="line">network x.x.x.x </span><br><span class="line">broadcast x.x.x.x </span><br><span class="line">gateway x.x.x.x</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>根据你的情况填上所有诸如address,netmask,network,broadcast和gateways等信息.<br>用下面的命令使网络设置生效: </p>
+<pre><code>#sudo /etc/init.d/networking restart 
+</code></pre><ol start="4">
+<li><p>设置主机名称(hostname)<br>使用下面的命令来查看当前主机的主机名称:<br> #sudo /bin/hostname<br>使用下面的命令来设置当前主机的主机名称:<br> #sudo /bin/hostname newname<br>系统启动时,它会从/etc/hostname来读取主机的名称. </p>
+</li>
+<li><p>配置DNS<br>首先,你可以在/etc/hosts中加入一些主机名称和这些主机名称对应的IP地址,这是简单使用本机的静态查询.<br>要访问DNS 服务器来进行查询,需要设置/etc/resolv.conf文件.<br>假设DNS服务器的IP地址是192.168.3.2, 那么/etc/resolv.conf文件的内容应为:<br>search test.com<br>nameserver 192.168.3.2 </p>
+</li>
+</ol>
+<p>安装AMP服务<br>如果采用Ubuntu Server CD开始安装时，可以选择安装，这系统会自动装上apache2,php5和mysql5。下面主要说明一下如果不是安装的Ubuntu server时的安装方法。<br>用命令在Ubuntu下架设Lamp其实很简单，用一条命令就完成。在终端输入以下命令： </p>
+<p>#sudo apt-get install apache2 mysql-server php5 php5-mysql php5-gd #phpmyadmin<br>装好后，mysql管理员是root，无密码，通过<a href="http://localhost/phpmyadmin就可以访问mysql了" target="_blank" rel="noopener">http://localhost/phpmyadmin就可以访问mysql了</a> </p>
+<p>修改 MySql 密码<br>终端下输入： </p>
+<pre><code>#mysql -u root 
+#mysql&gt; GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY “123456″; 
+</code></pre><p>’123456‘是root的密码，可以自由设置，但最好是设个安全点的。 </p>
+<pre><code>#mysql&gt; quit; 退出mysql 
+</code></pre><p>apache2的操作命令<br>启动：#sudo /etc/init.d/apache2 start<br>重启：#sudo /etc/init.d/apache2 restart<br>关闭：#sudo /etc/init.d/apache2 stop<br>apache2的默认主目录：/var/www/ </p>
+<p>Ubuntu 7.10 更换软件源、更新系统<br>网通建议用台湾的源，电信就用cn99<br>在终端输入: #sudo gedit /etc/apt/sources.list </p>
+<h1 id="Ubuntu-cn99-com-更新服务器（江苏省常州市电信，推荐电信用户使用。）"><a href="#Ubuntu-cn99-com-更新服务器（江苏省常州市电信，推荐电信用户使用。）" class="headerlink" title="Ubuntu.cn99.com 更新服务器（江苏省常州市电信，推荐电信用户使用。）"></a>Ubuntu.cn99.com 更新服务器（江苏省常州市电信，推荐电信用户使用。）</h1><p>deb <a href="http://ubuntu.cn99.com/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cn99.com/ubuntu/</a> gutsy main restricted universe multiverse<br>deb <a href="http://ubuntu.cn99.com/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cn99.com/ubuntu/</a> gutsy-security main restricted universe multiverse<br>deb <a href="http://ubuntu.cn99.com/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cn99.com/ubuntu/</a> gutsy-updates main restricted universe multiverse </p>
+<h1 id="mirror-rootguide-org更新服务器-上海市-电信"><a href="#mirror-rootguide-org更新服务器-上海市-电信" class="headerlink" title="mirror.rootguide.org更新服务器 (上海市 电信):"></a>mirror.rootguide.org更新服务器 (上海市 电信):</h1><p>deb <a href="http://mirror.rootguide.org/ubuntu/" target="_blank" rel="noopener">http://mirror.rootguide.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb-src <a href="http://mirror.rootguide.org/ubuntu/" target="_blank" rel="noopener">http://mirror.rootguide.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb <a href="http://mirror.rootguide.org/ubuntu/" target="_blank" rel="noopener">http://mirror.rootguide.org/ubuntu/</a> gutsy-updates main restricted universe multiverse </p>
+<h1 id="Mirror-lupaworld-com-更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）"><a href="#Mirror-lupaworld-com-更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）" class="headerlink" title="Mirror.lupaworld.com 更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）"></a>Mirror.lupaworld.com 更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）</h1><p>deb <a href="http://cn.archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://cn.archive.ubuntu.com/ubuntu</a> gutsy main restricted universe multiverse<br>deb <a href="http://cn.archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://cn.archive.ubuntu.com/ubuntu</a> gutsy-security main restricted universe multiverse<br>deb <a href="http://cn.archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://cn.archive.ubuntu.com/ubuntu</a> gutsy-updates main restricted universe multiverse </p>
+<h1 id="ubuntu-cnsite-org-更新服务器（福建省福州市-电信）"><a href="#ubuntu-cnsite-org-更新服务器（福建省福州市-电信）" class="headerlink" title="ubuntu.cnsite.org 更新服务器（福建省福州市 电信）"></a>ubuntu.cnsite.org 更新服务器（福建省福州市 电信）</h1><p>deb <a href="http://ubuntu.cnsite.org/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cnsite.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb-src <a href="http://ubuntu.cnsite.org/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cnsite.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb <a href="http://ubuntu.cnsite.org/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cnsite.org/ubuntu/</a> gutsy-updates main restricted universe multiverse </p>
+<p>#清华大学 更新服务器（教育网，推荐校园网和网通用户使用）<br>deb <a href="http://mirror9.net9.org/ubuntu/" target="_blank" rel="noopener">http://mirror9.net9.org/ubuntu/</a> gutsy main multiverse restricted universe<br>deb <a href="http://mirror9.net9.org/ubuntu/" target="_blank" rel="noopener">http://mirror9.net9.org/ubuntu/</a> gutsy-backports main multiverse restricted universe<br>deb <a href="http://mirror9.net9.org/ubuntu/" target="_blank" rel="noopener">http://mirror9.net9.org/ubuntu/</a> gutsy-proposed main multiverse restricted universe<br>将里面乱七八糟的东西删了，将你复制的源列表粘贴到里面，保存退出。<br>在终端输入 </p>
+<pre><code>#sudo apt-get update 
+#sudu apt-get upgrade 
+</code></pre><p>这样便更新以及升级了系统。 </p>
+<p>桌面汉化：<br>System&gt;Language Support&gt;Chinese选项勾打上。 </p>
+<p>安装解码器、flashplayer、java虚拟机、微软字体<br>这是ubuntu推出的一个新软件包，将一次性将上面几个东东自动装好<br>在终端输入 </p>
+<pre><code>#sudo apt-get install ubuntu-restricted-extras 
+</code></pre><p>FireFox 中安装 FlashPlayer 插件<br>先下载插件: install_flash_player_9_linux.tar.gz </p>
+<pre><code>#tar -zxf install_flash_player_9_linux.tar.gz 
+#./flashplayer-installer 
+</code></pre><p>回答(y/n/q)? n/q </p>
+<pre><code>#sudo cp libflashplayer.so /usr/lib/firefox/plugins 
+</code></pre><p>启动 firefox 即可！ </p>
+<p>安装媒体播放器<br>安装的是mplayer<br>终端输入：#sudo apt-get install mplayer mozilla-mplayer totem-xine libxine-extracodecs </p>
+<p>另外需要一个w32codecs文件，是用来支持那些私有媒体格式的解码器，源里已经没有w32codecs了，我们可以从这里下载那个后缀为.deb的安装<br><a href="http://www.debian-multimedia.org/pool/main/w/w32codecs/" target="_blank" rel="noopener">http://www.debian-multimedia.org/pool/main/w/w32codecs/</a> </p>
+<p>mplayer调试(视频、字幕)<br>启动mplayer,右键－&gt;Preferences－&gt;Video<br>Available drivers选择xv<br>然后进入Font标签 Font里选择一个中文字体，Encoding里设置为Simplified Chinese charset (CP936) </p>
+<p>安装下载工具（多线程下载、BT下载、电驴）<br>还是终端输入：#sudo apt-get install d4x amule azureus<br>即可。<br>或者把 beryl-manager添加到启动项内 </p>
+<p>字体更换<br>我推荐大家使用文泉驿字体，在<br><a href="http://wqy.sourceforge.net" target="_blank" rel="noopener">http://wqy.sourceforge.net</a><br>下载deb包安装<br>在“系统“－&gt;”首选项“－&gt;”字体“中调整字体 </p>
+<p>apt下载的deb包清理<br>在使用完apt后，系统下载的deb包会留存在硬盘里，我们可以把它们删除，释放硬盘空间。<br>终端输入：#sudo apt-get clean </p>
+<p>安装rar压缩、解压工具<br>终端输入：#sudo apt-get install rar unrar </p>
+<p>启用root（最高权限）帐户<br>终端输入：#sudo passwd root<br>输入你希望的root用户的密码 </p>
+<p>安装QQ<br>终端输入：#sudo apt-get install eva<br>便可安装eva了，如果你是使用scim(选择中文语言支持的自动安装的就是scim)，为了可以在eva里面输入文字，要在终端输入：sudo apt-get install scim-qtimm<br>系统会安装支持QT的scim插件，这样你就可以使用eva聊qq了。 </p>
+<p>显卡驱动安装<br>进入“系统”－&gt;“系统管理”－&gt;“受限驱动管理器”<br>找到你的显卡，把那个框点成对号，会提示你安装显卡驱动，然后按照提示一步一步安装完毕，重启即可。 </p>
+<p>beryl的安装<br>你的系统在安装完毕之后就已经有了一个内置的桌面效果软件（能实现简单的桌面特效，包括3D立方体），使用方法是（必须将显卡驱动装好）进入“系统”“首选项”“桌面效果”，点击“启用桌面效果”，如果你需要使用3D立方体桌面，那么选中“立方体上的工作区”即可。<br>如果你对这个简单的桌面特效工具不太满意，想追求更华丽的桌面，那么安装beryl仍然是个很好的选择。如今安装beryl不会像以前一样麻烦了，feisty的源里已经有了beryl的软件包，我们只需要在终端里输入： </p>
+<pre><code>#sudo apt-get install beryl-core beryl-plugins beryl-plugins-data emerald beryl-settings beryl-manager beryl beryl-dev emerald-themes 
+</code></pre><p>安装完毕即可了。<br>启动方法：“应用程序”－&gt;”系统工具”－&gt;”Beryl Manager”<br>或者直接在终端输入：#beryl-manager </p>
+<p>如何设定/改变/启用 root 使用者的密码? </p>
+<pre><code>#sudo passwd root 
+</code></pre><p>为了启用 root 帐号 (也就是 设置一个口令) 使用: </p>
+<p>#sudo passwd root </p>
+<p>当你使用完毕后屏蔽 root 帐号 使用: </p>
+<p>#sudo passwd -l root<br>这个将锁住 root 帐号. </p>
+<p>如何在终端机模式下切换到 root 身份? </p>
+<p>#sudo -s -H<br>Password: &lt;在这注明您的密码&gt; </p>
+<p>安装VNC server<br>第一步, 获取安装文件 </p>
+<pre><code>#sudo apt-get install vnc4server 
+</code></pre><p>第二步, 修改VNC Password, 6-8位 </p>
+<pre><code>#vncpasswd 
+</code></pre><p>Password: <strong>**</strong><br>Verify:<strong>*</strong><br>第三步, 修改配置<br>系统-&gt;首选项-&gt;远程桌面<br>选择-&gt;请求用户输入此密码-&gt;输入至少6位密码<br>第四步, 启动VNC server </p>
+<pre><code>#vncserver 
+</code></pre><p>第五步，通过客户端连接 </p>
+<pre><code>#vncviewer 192.168.0.1 
+</code></pre><p>安装MS字体 </p>
+<p>#sudo apt-get install msttcorefonts </p>
+<p>vim配置<br>1) 首先安装 vim 完整版本 </p>
+<pre><code>#sudo apt-get install vim-full 
+</code></pre><p>2) vim中文在线帮助<br>a. 先下载文档 vimcdoc-1.5.0.tar.gz<br>b. 解压, 执行./vimcdoc.sh, vi里面, 执行:help, 就都是中文的了. </p>
+<p>3) 启用本地配置 VIM version 7.1 (说明文档) </p>
+<pre><code>#cp etc/vim/vimrc ~/.vimrc 
+#vim ~/.vimrc 
+</code></pre><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 一般设定<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 设定默认解码<br>set fenc=utf-8<br>set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936<br>“ 不要使用vi的键盘模式，而是vim自己的<br>set nocompatible </p>
+<p>“ history文件中需要记录的行数<br>set history=100 </p>
+<p>“ 在处理未保存或只读文件的时候，弹出确认<br>set confirm </p>
+<p>“ 与windows共享剪贴板<br>set clipboard+=unnamed </p>
+<p>“ 侦测文件类型<br>filetype on </p>
+<p>“ 载入文件类型插件<br>filetype plugin on </p>
+<p>“ 为特定文件类型载入相关缩进文件<br>filetype indent on </p>
+<p>“ 保存全局变量<br>set viminfo+=! </p>
+<p>“ 带有如下符号的单词不要被换行分割<br>set iskeyword+=_,$,@,%,#,- </p>
+<p>“ 语法高亮<br>syntax on </p>
+<p>“ 高亮字符，让其不受100列限制<br>:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white<br>:match OverLength ‘\%101v.*’ </p>
+<p>“ 状态行颜色<br>highlight StatusLine guifg=SlateBlue guibg=Yellow<br>highlight StatusLineNC guifg=Gray guibg=White </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 文件设置<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 不要备份文件（根据自己需要取舍）<br>set nobackup </p>
+<p>“ 不要生成swap文件，当buffer被丢弃的时候隐藏它<br>setlocal noswapfile<br>set bufhidden=hide </p>
+<p>“ 字符间插入的像素行数目<br>set linespace=0 </p>
+<p>“ 增强模式中的命令行自动完成操作<br>set wildmenu </p>
+<p>“ 在状态行上显示光标所在位置的行号和列号<br>set ruler<br>set rulerformat=%20(%2*%&lt;%f%=\ %m%r\ %3l\ %c\ %p%%%) </p>
+<p>“ 命令行（在状态行下）的高度，默认为1，这里是2<br>set cmdheight=2 </p>
+<p>“ 使回格键（backspace）正常处理indent, eol, start等<br>set backspace=2 </p>
+<p>“ 允许backspace和光标键跨越行边界<br>set whichwrap+=&lt;,&gt;,h,l </p>
+<p>“ 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）<br>set mouse=a<br>set selection=exclusive<br>set selectmode=mouse,key </p>
+<p>“ 启动的时候不显示那个援助索马里儿童的提示<br>set shortmess=atI </p>
+<p>“ 通过使用: commands命令，告诉我们文件的哪一行被改变过<br>set report=0 </p>
+<p>“ 不让vim发出讨厌的滴滴声<br>set noerrorbells </p>
+<p>“ 在被分割的窗口间显示空白，便于阅读<br>set fillchars=vert:\ ,stl:\ ,stlnc:\ </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 搜索和匹配<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 高亮显示匹配的括号<br>set showmatch </p>
+<p>“ 匹配括号高亮的时间（单位是十分之一秒）<br>set matchtime=5 </p>
+<p>“ 在搜索的时候忽略大小写<br>set ignorecase </p>
+<p>“ 不要高亮被搜索的句子（phrases）<br>set nohlsearch </p>
+<p>“ 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）<br>set incsearch </p>
+<p>“ 输入:set list命令是应该显示些啥？<br>set listchars=tab:|\ ,trail:.,extends:&gt;,precedes:&lt;,eol:$ </p>
+<p>“ 光标移动到buffer的顶部和底部时保持3行距离<br>set scrolloff=3 </p>
+<p>“ 不要闪烁<br>set novisualbell </p>
+<p>“ 我的状态行显示的内容（包括文件类型和解码）<br>set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\”%d/%m/%y\ -\ %H:%M\”)} </p>
+<p>“ 总是显示状态行<br>set laststatus=2 </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 文本格式和排版<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 自动格式化<br>set formatoptions=tcrqn </p>
+<p>“ 继承前一行的缩进方式，特别适用于多行注释<br>set autoindent </p>
+<p>“ 为C程序提供自动缩进<br>set smartindent </p>
+<p>“ 使用C样式的缩进<br>set cindent </p>
+<p>“ 制表符为4<br>set tabstop=4 </p>
+<p>“ 统一缩进为4<br>set softtabstop=4<br>set shiftwidth=4 </p>
+<p>“ 不要用空格代替制表符<br>set noexpandtab </p>
+<p>“ 不要换行<br>set nowrap </p>
+<p>“ 在行和段开始处使用制表符<br>set smarttab </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ CTags的设定<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 按照名称排序<br>let Tlist_Sort_Type = “name” </p>
+<p>“ 在右侧显示窗口<br>let Tlist_Use_Right_Window = 1 </p>
+<p>“ 压缩方式<br>let Tlist_Compart_Format = 1 </p>
+<p>“ 如果只有一个buffer，kill窗口也kill掉buffer<br>let Tlist_Exist_OnlyWindow = 1 </p>
+<p>“ 不要关闭其他文件的tags<br>let Tlist_File_Fold_Auto_Close = 0 </p>
+<p>“ 不要显示折叠树<br>let Tlist_Enable_Fold_Column = 0 </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ Autocommands<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示 </p>
+<p>if has(“autocmd”)<br>autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby set number<br>autocmd FileType xml,html vmap</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+        </div>
+      
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">📜我是有底线滴🍹🍸🍺☕感谢您的阅读📜</div>
+    
+</div>
+  
+</div>
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/10/mysql/" rel="prev" title="mysql">
+                <i class="fa fa-chevron-left"></i> mysql
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/23/spring-mybatis/" rel="next" title="spring mybatis整合">
+                spring mybatis整合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="annkee" />
+            
+              <p class="site-author-name" itemprop="name">annkee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/annkee" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangan.cc@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+        
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1321617438&auto=1&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=518088247&auto=1&height=66"></iframe>
+<!--本站已经运行多长时间-->
+<div>
+	<span id="span_dt_dt" style="color: #6B5DB7;display: block"> </span>
+	<span style="display: block">🐶</span>
+	<span style="color: #6B5DB7;display: block">稳得一批</span>
+	
+	<script language="javascript">
+		function show_date_time(){
+			window.setTimeout("show_date_time()", 1000);
+			BirthDay=new Date("12/02/2016 00:00:00");
+			today=new Date();
+			timeold=(today.getTime()-BirthDay.getTime());
+			sectimeold=timeold/1000
+			secondsold=Math.floor(sectimeold);
+			msPerDay=24*60*60*1000
+			e_daysold=timeold/msPerDay
+			daysold=Math.floor(e_daysold);
+			e_hrsold=(e_daysold-daysold)*24;
+			hrsold=Math.floor(e_hrsold);
+			e_minsold=(e_hrsold-hrsold)*60;
+			minsold=Math.floor((e_hrsold-hrsold)*60);
+			seconds=Math.floor((e_minsold-minsold)*60);
+			span_dt_dt.innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+			}
+		show_date_time();
+	</script></div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进入带空格的文件或者文件夹"><span class="nav-number">1.</span> <span class="nav-text">进入带空格的文件或者文件夹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux文件权限详解-文件和目录权限概述"><span class="nav-number">2.</span> <span class="nav-text">Linux文件权限详解 文件和目录权限概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限的种类和设置权限的方法。"><span class="nav-number">3.</span> <span class="nav-text">权限的种类和设置权限的方法。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一般权限"><span class="nav-number">3.1.</span> <span class="nav-text">一般权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表示不具有该项的权限。"><span class="nav-number">3.2.</span> <span class="nav-text">表示不具有该项的权限。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux面试"><span class="nav-number">4.</span> <span class="nav-text">linux面试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">5.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统管理"><span class="nav-number">5.1.</span> <span class="nav-text">系统管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包-解压"><span class="nav-number">5.2.</span> <span class="nav-text">打包/解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#make编译"><span class="nav-number">5.3.</span> <span class="nav-text">make编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt命令"><span class="nav-number">5.4.</span> <span class="nav-text">apt命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-primary-network-interface-use-DHCP-to-find-our-address"><span class="nav-number">6.</span> <span class="nav-text">The primary network interface - use DHCP to find our address</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-primary-network-interface"><span class="nav-number">7.</span> <span class="nav-text">The primary network interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-cn99-com-更新服务器（江苏省常州市电信，推荐电信用户使用。）"><span class="nav-number">8.</span> <span class="nav-text">Ubuntu.cn99.com 更新服务器（江苏省常州市电信，推荐电信用户使用。）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mirror-rootguide-org更新服务器-上海市-电信"><span class="nav-number">9.</span> <span class="nav-text">mirror.rootguide.org更新服务器 (上海市 电信):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mirror-lupaworld-com-更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）"><span class="nav-number">10.</span> <span class="nav-text">Mirror.lupaworld.com 更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu-cnsite-org-更新服务器（福建省福州市-电信）"><span class="nav-number">11.</span> <span class="nav-text">ubuntu.cnsite.org 更新服务器（福建省福州市 电信）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">annkee</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user-circle-o"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      <i class="fa fa-eye"></i>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytqQ5Qdo';
+      var conf = '8e4a5d862f328644a285c99fe3655d51';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jOaqcIfvvUu9RC8t0OpMVQdQ-gzGzoHsz", "UfCTOCCng31SxEoH6p8P7c3X");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: ,
+    el: 'wpac-rating',
+    color: 'f79533'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+<script>
+  $("body").backstretch("https://blog.majunxiang.wang/images/background.jpg");
+</script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+</html>
