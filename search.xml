@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[github配置ssh]]></title>
+    <url>%2F2019%2F08%2F08%2Fgithub-ssh%2F</url>
+    <content type="text"><![CDATA[centos7 gitlab安装安装SSH服务，在系统防火墙中打开HTTP和SSH访问12345sudo yum install -y curl policycoreutils-python openssh-server #安装sshsudo systemctl enable sshd #设为开机启动sudo systemctl start sshd #启动sudo firewall-cmd --permanent --add-service=http #打开HTTPsudo systemctl reload firewalld #重启，使防火墙修改生效 安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）123sudo yum install postfix #装Postfix以发送通知邮件sudo systemctl enable postfix #设为开机启动sudo systemctl start postfix #启动 下载安装包下载地址： https://packages.gitlab.com/gitlab/gitlab-ce 根据自己需要进行版本选择。 安装sudo EXTERNAL_URL=&quot;http://ip:端口&quot;=rpm -i rpm包 注意：端口不要和现有的冲突 查看配置文件vi /etc/gitlab/gitlab.rb 主要看unicorn[‘port’]=8079(端口不要冲突) 重启配置gitlab-ctl reconfigure 防火墙设置123firewall-cmd --zone= public --query-port=8079/tcp #查看firewall-cmd --zone=public --add-port=8079/tcp --permanent #--permanent永久生效，没有此参数重启后失效firewall-cmd --reload #修改生效 相关命令：1234567891011121314151617181920systemctl start firewalld.service #启动一个服务systemctl stop firewalld.service #关闭一个服务systemctl restart firewalld.service #重启一个服务systemctl status firewalld.service #显示一个服务的状态systemctl enable firewalld.service #在开机时启用一个服务systemctl disable firewalld.service #在开机时禁用一个服务systemctl is-enabled firewalld.service #查看服务是否开机启动systemctl list-unit-files|grep enabled #查看已启动的服务列表systemctl --failed #查看启动失败的服务列表firewall-cmd --version #查看版本firewall-cmd --help #查看帮助firewall-cmd --state #显示状态firewall-cmd --zone=public --list-ports #查看所有打开的端口firewall-cmd --reload #更新防火墙规则firewall-cmd --get-active-zones #查看区域信息firewall-cmd --get-zone-of-interface=eth0 #查看指定接口所属区域firewall-cmd --panic-on #拒绝所有包firewall-cmd --panic-off #取消拒绝状态firewall-cmd --query-panic #查看是否拒绝 gitlab相关命令1234sudo gitlab-ctl status #查看状态sudo gitlab-ctl start # 启动Gitlab所有组件sudo gitlab-ctl stop # 停止Gitlab所有组件sudo gitlab-ctl restart # 重启Gitlab所有组件 git命令窗口输入123$ git config --global user.name &quot;wangan058&quot;$ git config --global user.email &quot;wangan058@163.com&quot;$ ssh-keygen -t rsa -C &quot;wangan058@163.com&quot; 然后生成一个C:\Users\annkee(你的用户目录)\.ssh路径，打开id_rsa.pub文件，复制全部粘贴到远端的github上的ssh key 里面。 测试：$ ssh -T git@github.com 出现:Hi annkee! You&#39;ve successfully authenticated, but GitHub does not provide shell access.sh 说明正常 在你init过的路径下进入“.git目录”，打开“config”文件，修改url为：12url = git@github.com:annkee/mobile-scm.gitfetch = +refs/heads/*:refs/remotes/origin/* 把https://github.com/ 替换为 git@github.com: 就行了]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[sublime text 3安装格式化json的插件]]></title>
     <url>%2F2019%2F08%2F06%2Fsublime-text3%2F</url>
     <content type="text"><![CDATA[sublime text 安装json格式化插件 第一步打开sublime text ,输入快捷键CTRL+`在下面输入：1import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read()) 第二步稍等几秒，等结束，然后用快捷键CTRL+shift+p，输入install package,选择第一个， 第三步等几秒，出现弹出框，在弹出框输入要安装的插件，等待安装完成。CTRL+alt+j格式化json 注册码1.Sublime3注册码 ZYNGA INC.50 User LicenseEA7E-811825927BA117 84C9300F 4A0CCBC4 34A56B44985E4562 59F2B63B CCCFF92F 0E646B830FD6487D 1507AE29 9CC4F9F5 0A6F32E30343D868 C18E2CD5 27641A71 25475648309705B3 E468DDC4 1B766A18 7952D28CE627DDBA 960A2153 69A2D98A C87C060745DC6049 8C04EC29 D18DFA40 442C680B 1342224D 44D90641 33A3B9F2 46AADB8F 2.sublime无法设置默认打开的话，检查sublime注册表value路径是否正确 3.idea控制台tomcat乱码：在配置文件中加入C:\Users\Administrator.IntelliJIdea2019.2\config\idea64.exe.vmoptions：-Dfile.encoding=UTF-8]]></content>
@@ -45,11 +56,6 @@
     <content type="text"><![CDATA[小程序官方文档介绍首先附上文档：小程序官方文档介绍 可以说，现在每款智能手机上都装有一款微信软件，这款产品里面有各种功能，而微信也早已成为了一个生态。小程序其实就是基于微信平台的一款自封装的软件应用快速开发，扩展的一款东西。正如文档所说：微信小程序是一种全新的连接用户与服务的方式，它可以在微信内被便捷地获取和传播，同时具有出色的使用体验。2017年1月9日，张小龙在2017微信公开课Pro上发布的小程序正式上线。经过将近两年的发展，小程序已经构造了自己的一套开发环境和开发者生态。小程序的开发内容也更是涵盖了许多的行业：房地产、内容咨询、新闻发布、科技创新、母婴家居、外卖物流、保险金融等各行各业。而小程序的开发也需要一定的技术功底。当然开发之前肯定是要注册一个小程序账号，小程序开放了个人和企业注册，方便了个人进行开发测试。不过，对于个人的开发有个比较大的坑，那就是小程序的云存储的权限问题：也就是说除创建者和管理员外，其他所有用户只有可读权限，并不能编辑他们自己的用户信息。不过可以使用wx.setStorage(Object object)来存储数据到本地，将数据存储在本地缓存中指定的 key 中。会覆盖掉原来该 key 对应的内容。数据存储生命周期跟小程序本身一致，即除用户主动删除或超过一定时间被自动清理，否则数据都一直可用。单个 key 允许存储的最大数据长度为 1MB，所有数据存储上限为 10MB。当然，如果有自己的服务器，还是存在服务器数据库中最好。 好了，关于小程序就先说到这里。]]></content>
   </entry>
   <entry>
-    <title><![CDATA[微信公众号授权]]></title>
-    <url>%2F2018%2F11%2F05%2F%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%88%E6%9D%83%2F</url>
-    <content type="text"><![CDATA[首先附上微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842 授权登陆大致流程1.前端重定向到授权地址：12345var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; + &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;# 重定向到微信授权地址window.location.href=url 注：redirect_uri：的地址所在域名需要在公众平台后台配置：如图： 2.获取微信返回到code，给后台传过去12345678910var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; + &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;var codeUrl = location.search();if(codeUrl!=&quot;&quot;&amp;&amp; codeUrl!=null&amp;&amp;code.indexOf(&quot;code&quot;)!=-1)&#123;//此处就获得了code，具体代码自己写吧，就是截取字符串获取code参数&#125;else&#123;// 重定向到微信授权地址window.location.href=url&#125; 获取accesstoken如果报错：accesstoken invalid ip 55.11.11.10, not in whitelist此时需要在微信公众平台–&gt;基本配置–&gt;IP白名单设置此IP即可]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[github解决矛盾]]></title>
     <url>%2F2018%2F11%2F05%2Fgithub%E8%A7%A3%E5%86%B3%E7%9F%9B%E7%9B%BE%2F</url>
     <content type="text"><![CDATA[当从远程项目git clone 下来项目之后，然后进行二次开发，需要将代码提交到远程，处理流程： 工具git下载链接：git for windows 操作流程1.在项目目录打开gitbash2.输入git status查看状态3.输入git add将modified的文件需要提交的进行添加4.git commit -m “description”5.git fetch origin temp,将远程的代码拉取到temp临时分支里6.git merge temp，在当前master分支合并temp分支文件7.再次使用git status查看状态8.合并中会出现部分unmerged的文件，然后打开这些文件，手动解决冲突。9.冲突的同一个文件里的内容会有12345&lt;&lt;&lt;&lt;&lt;&lt;HEAD这里是你本地项目的代码====这里是从远程下下来的代码&gt;&gt;&gt;&gt;&gt;temp 看下哪里有冲突，手动解决后需要删除&lt;&lt;&lt;&lt;&lt;&lt;HEAD、====、&gt;&gt;&gt;&gt;&gt;temp这些多余的字符，至此冲突解决。然后正常的通过git add,git commit，git push [远程名] [本地分支]:[远程分支] 进行操作。]]></content>
@@ -59,6 +65,11 @@
       <tags>
         <tag>github</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信公众号授权]]></title>
+    <url>%2F2018%2F11%2F05%2F%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%88%E6%9D%83%2F</url>
+    <content type="text"><![CDATA[首先附上微信官方文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842 授权登陆大致流程1.前端重定向到授权地址：12345var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; + &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;# 重定向到微信授权地址window.location.href=url 注：redirect_uri：的地址所在域名需要在公众平台后台配置：如图： 2.获取微信返回到code，给后台传过去12345678910var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; + &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;var codeUrl = location.search();if(codeUrl!=&quot;&quot;&amp;&amp; codeUrl!=null&amp;&amp;code.indexOf(&quot;code&quot;)!=-1)&#123;//此处就获得了code，具体代码自己写吧，就是截取字符串获取code参数&#125;else&#123;// 重定向到微信授权地址window.location.href=url&#125; 获取accesstoken如果报错：accesstoken invalid ip 55.11.11.10, not in whitelist此时需要在微信公众平台–&gt;基本配置–&gt;IP白名单设置此IP即可]]></content>
   </entry>
   <entry>
     <title><![CDATA[Ubuntu使用lantern翻墙]]></title>
@@ -99,17 +110,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>live2d</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[github配置ssh]]></title>
-    <url>%2F2018%2F04%2F12%2Fgithub-ssh%2F</url>
-    <content type="text"><![CDATA[git命令窗口输入123$ git config --global user.name &quot;wangan058&quot;$ git config --global user.email &quot;wangan058@163.com&quot;$ ssh-keygen -t rsa -C &quot;wangan058@163.com&quot; 然后生成一个C:\Users\annkee(你的用户目录)\.ssh路径，打开id_rsa.pub文件，复制全部粘贴到远端的github上的ssh key 里面。 测试：$ ssh -T git@github.com 出现:Hi annkee! You&#39;ve successfully authenticated, but GitHub does not provide shell access.sh 说明正常 在你init过的路径下进入“.git目录”，打开“config”文件，修改url为：12url = git@github.com:annkee/mobile-scm.gitfetch = +refs/heads/*:refs/remotes/origin/* 把https://github.com/ 替换为 git@github.com: 就行了]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
       </tags>
   </entry>
   <entry>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/annkee/"/>
-  <updated>2019-08-06T06:15:29.185Z</updated>
+  <updated>2019-08-08T01:15:53.999Z</updated>
   <id>https://github.com/annkee/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github配置ssh</title>
+    <link href="https://github.com/annkee/2019/08/08/github-ssh/"/>
+    <id>https://github.com/annkee/2019/08/08/github-ssh/</id>
+    <published>2019-08-07T16:00:00.000Z</published>
+    <updated>2019-08-08T01:15:53.999Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/5841000-bbe9448274a8f8e9.jpg" alt="github" style="width: 100%"></p><a id="more"></a><h1 id="centos7-gitlab安装"><a href="#centos7-gitlab安装" class="headerlink" title="centos7 gitlab安装"></a>centos7 gitlab安装</h1><h2 id="安装SSH服务，在系统防火墙中打开HTTP和SSH访问"><a href="#安装SSH服务，在系统防火墙中打开HTTP和SSH访问" class="headerlink" title="安装SSH服务，在系统防火墙中打开HTTP和SSH访问"></a>安装SSH服务，在系统防火墙中打开HTTP和SSH访问</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y curl policycoreutils-python openssh-server #安装ssh</span><br><span class="line">sudo systemctl enable sshd #设为开机启动</span><br><span class="line">sudo systemctl start sshd #启动</span><br><span class="line">sudo firewall-cmd --permanent --add-service=http #打开HTTP</span><br><span class="line">sudo systemctl reload firewalld #重启，使防火墙修改生效</span><br></pre></td></tr></table></figure><h2 id="安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）"><a href="#安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）" class="headerlink" title="安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）"></a>安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install postfix #装Postfix以发送通知邮件</span><br><span class="line">sudo systemctl enable postfix #设为开机启动</span><br><span class="line">sudo systemctl start postfix #启动</span><br></pre></td></tr></table></figure><h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><p>下载地址： <a href="https://packages.gitlab.com/gitlab/gitlab-ce" target="_blank" rel="noopener">https://packages.gitlab.com/gitlab/gitlab-ce</a></p><p>根据自己需要进行版本选择。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>sudo EXTERNAL_URL=&quot;http://ip:端口&quot;=rpm -i rpm包</code></p><p>注意：端口不要和现有的冲突</p><h2 id="查看配置文件"><a href="#查看配置文件" class="headerlink" title="查看配置文件"></a>查看配置文件</h2><p><code>vi /etc/gitlab/gitlab.rb</code></p><p>主要看unicorn[‘port’]=8079(端口不要冲突)</p><h2 id="重启配置"><a href="#重启配置" class="headerlink" title="重启配置"></a>重启配置</h2><p><code>gitlab-ctl reconfigure</code></p><h2 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone= public --query-port=8079/tcp #查看</span><br><span class="line">firewall-cmd --zone=public --add-port=8079/tcp --permanent    #--permanent永久生效，没有此参数重启后失效</span><br><span class="line">firewall-cmd --reload #修改生效</span><br></pre></td></tr></table></figure><h3 id="相关命令："><a href="#相关命令：" class="headerlink" title="相关命令："></a>相关命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service #启动一个服务</span><br><span class="line">systemctl stop firewalld.service #关闭一个服务</span><br><span class="line">systemctl restart firewalld.service #重启一个服务</span><br><span class="line">systemctl status firewalld.service #显示一个服务的状态</span><br><span class="line">systemctl enable firewalld.service #在开机时启用一个服务</span><br><span class="line">systemctl disable firewalld.service #在开机时禁用一个服务</span><br><span class="line">systemctl is-enabled firewalld.service #查看服务是否开机启动</span><br><span class="line">systemctl list-unit-files|grep enabled #查看已启动的服务列表</span><br><span class="line">systemctl --failed #查看启动失败的服务列表</span><br><span class="line"></span><br><span class="line">firewall-cmd --version #查看版本</span><br><span class="line">firewall-cmd --help #查看帮助</span><br><span class="line">firewall-cmd --state #显示状态</span><br><span class="line">firewall-cmd --zone=public --list-ports #查看所有打开的端口</span><br><span class="line">firewall-cmd --reload #更新防火墙规则</span><br><span class="line">firewall-cmd --get-active-zones #查看区域信息</span><br><span class="line">firewall-cmd --get-zone-of-interface=eth0 #查看指定接口所属区域</span><br><span class="line">firewall-cmd --panic-on #拒绝所有包</span><br><span class="line">firewall-cmd --panic-off #取消拒绝状态</span><br><span class="line">firewall-cmd --query-panic #查看是否拒绝</span><br></pre></td></tr></table></figure><h2 id="gitlab相关命令"><a href="#gitlab相关命令" class="headerlink" title="gitlab相关命令"></a>gitlab相关命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl status #查看状态</span><br><span class="line">sudo gitlab-ctl start # 启动Gitlab所有组件</span><br><span class="line">sudo gitlab-ctl stop # 停止Gitlab所有组件</span><br><span class="line">sudo gitlab-ctl restart # 重启Gitlab所有组件</span><br></pre></td></tr></table></figure><h1 id="git命令窗口输入"><a href="#git命令窗口输入" class="headerlink" title="git命令窗口输入"></a>git命令窗口输入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;wangan058&quot;</span><br><span class="line">$ git config --global user.email &quot;wangan058@163.com&quot;</span><br><span class="line">$ ssh-keygen -t rsa -C &quot;wangan058@163.com&quot;</span><br></pre></td></tr></table></figure><p>然后生成一个C:\Users\annkee(你的用户目录)\.ssh路径，打开id_rsa.pub文件，复制全部粘贴到远端的github上的ssh key 里面。</p><p>测试：<br><code>$ ssh -T git@github.com</code></p><p>出现:<code>Hi annkee! You&#39;ve successfully authenticated, but GitHub does not provide shell access.sh</code> 说明正常</p><h1 id="在你init过的路径下进入“-git目录”，打开“config”文件，修改url为："><a href="#在你init过的路径下进入“-git目录”，打开“config”文件，修改url为：" class="headerlink" title="在你init过的路径下进入“.git目录”，打开“config”文件，修改url为："></a>在你init过的路径下进入“.git目录”，打开“config”文件，修改url为：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url = git@github.com:annkee/mobile-scm.git</span><br><span class="line">fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure><p>把<code>https://github.com/</code> 替换为 <a href="mailto:git@github.com">git@github.com</a>: 就行了</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://blog.annkee.top/images/5841000-bbe9448274a8f8e9.jpg&quot; alt=&quot;github&quot; style=&quot;width: 100%&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="github" scheme="https://github.com/annkee/categories/github/"/>
+    
+    
+      <category term="github" scheme="https://github.com/annkee/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>sublime text 3安装格式化json的插件</title>
@@ -121,24 +143,6 @@
   </entry>
   
   <entry>
-    <title>微信公众号授权</title>
-    <link href="https://github.com/annkee/2018/11/05/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%88%E6%9D%83/"/>
-    <id>https://github.com/annkee/2018/11/05/微信公众号授权/</id>
-    <published>2018-11-04T16:00:00.000Z</published>
-    <updated>2019-07-08T10:38:50.072Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/5841000-09aa556d9b535680.png" alt="👍" style="width: 100%"><br><a id="more"></a></p><p>首先附上微信官方文档：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842" target="_blank" rel="noopener">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842</a></p><h1 id="授权登陆大致流程"><a href="#授权登陆大致流程" class="headerlink" title="授权登陆大致流程"></a>授权登陆大致流程</h1><p>1.前端重定向到授权地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; +</span><br><span class="line"> &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;</span><br><span class="line"></span><br><span class="line"># 重定向到微信授权地址</span><br><span class="line">window.location.href=url</span><br></pre></td></tr></table></figure></p><p>注：redirect_uri：的地址所在域名需要在公众平台后台配置：<br>如图：<br><img src="https://upload-images.jianshu.io/upload_images/5841000-2fd2c0ba82eecf58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置回调域名"><br><img src="https://upload-images.jianshu.io/upload_images/5841000-09aa556d9b535680.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置回调域名"></p><p>2.获取微信返回到code，给后台传过去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; +</span><br><span class="line"> &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;</span><br><span class="line"></span><br><span class="line">var codeUrl = location.search();</span><br><span class="line">if(codeUrl!=&quot;&quot;&amp;&amp; codeUrl!=null&amp;&amp;code.indexOf(&quot;code&quot;)!=-1)&#123;</span><br><span class="line">//此处就获得了code，具体代码自己写吧，就是截取字符串获取code参数</span><br><span class="line">&#125;else&#123;</span><br><span class="line">// 重定向到微信授权地址</span><br><span class="line">window.location.href=url</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h1 id="获取accesstoken如果报错：accesstoken-invalid-ip-55-11-11-10-not-in-whitelist"><a href="#获取accesstoken如果报错：accesstoken-invalid-ip-55-11-11-10-not-in-whitelist" class="headerlink" title="获取accesstoken如果报错：accesstoken invalid ip 55.11.11.10, not in whitelist"></a>获取accesstoken如果报错：accesstoken invalid ip 55.11.11.10, not in whitelist</h1><p>此时需要在微信公众平台–&gt;基本配置–&gt;IP白名单设置此IP即可</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://blog.annkee.top/images/5841000-09aa556d9b535680.png&quot; alt=&quot;👍&quot; style=&quot;width: 100%&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>github解决矛盾</title>
     <link href="https://github.com/annkee/2018/11/05/github%E8%A7%A3%E5%86%B3%E7%9F%9B%E7%9B%BE/"/>
     <id>https://github.com/annkee/2018/11/05/github解决矛盾/</id>
@@ -157,6 +161,24 @@
     
     
       <category term="github" scheme="https://github.com/annkee/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信公众号授权</title>
+    <link href="https://github.com/annkee/2018/11/05/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%88%E6%9D%83/"/>
+    <id>https://github.com/annkee/2018/11/05/微信公众号授权/</id>
+    <published>2018-11-04T16:00:00.000Z</published>
+    <updated>2019-07-08T10:38:50.072Z</updated>
+    
+    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/5841000-09aa556d9b535680.png" alt="👍" style="width: 100%"><br><a id="more"></a></p><p>首先附上微信官方文档：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842" target="_blank" rel="noopener">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842</a></p><h1 id="授权登陆大致流程"><a href="#授权登陆大致流程" class="headerlink" title="授权登陆大致流程"></a>授权登陆大致流程</h1><p>1.前端重定向到授权地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; +</span><br><span class="line"> &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;</span><br><span class="line"></span><br><span class="line"># 重定向到微信授权地址</span><br><span class="line">window.location.href=url</span><br></pre></td></tr></table></figure></p><p>注：redirect_uri：的地址所在域名需要在公众平台后台配置：<br>如图：<br><img src="https://upload-images.jianshu.io/upload_images/5841000-2fd2c0ba82eecf58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置回调域名"><br><img src="https://upload-images.jianshu.io/upload_images/5841000-09aa556d9b535680.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置回调域名"></p><p>2.获取微信返回到code，给后台传过去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var url = &quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=&quot; +</span><br><span class="line"> &quot;你的appid&quot; + &quot;&amp;redirect_uri=&quot; + &quot;你当前的页面地址，这个地址跟后台的域名回调地址的域名相同&quot; + &quot;&amp;response_type=code&amp;scope=snsapi_base&amp;state=STATE&amp;connect_redirect=1#wechat_redirect&quot;;</span><br><span class="line"></span><br><span class="line">var codeUrl = location.search();</span><br><span class="line">if(codeUrl!=&quot;&quot;&amp;&amp; codeUrl!=null&amp;&amp;code.indexOf(&quot;code&quot;)!=-1)&#123;</span><br><span class="line">//此处就获得了code，具体代码自己写吧，就是截取字符串获取code参数</span><br><span class="line">&#125;else&#123;</span><br><span class="line">// 重定向到微信授权地址</span><br><span class="line">window.location.href=url</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h1 id="获取accesstoken如果报错：accesstoken-invalid-ip-55-11-11-10-not-in-whitelist"><a href="#获取accesstoken如果报错：accesstoken-invalid-ip-55-11-11-10-not-in-whitelist" class="headerlink" title="获取accesstoken如果报错：accesstoken invalid ip 55.11.11.10, not in whitelist"></a>获取accesstoken如果报错：accesstoken invalid ip 55.11.11.10, not in whitelist</h1><p>此时需要在微信公众平台–&gt;基本配置–&gt;IP白名单设置此IP即可</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://blog.annkee.top/images/5841000-09aa556d9b535680.png&quot; alt=&quot;👍&quot; style=&quot;width: 100%&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
     
   </entry>
   
@@ -247,28 +269,6 @@
       <category term="hexo" scheme="https://github.com/annkee/tags/hexo/"/>
     
       <category term="live2d" scheme="https://github.com/annkee/tags/live2d/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github配置ssh</title>
-    <link href="https://github.com/annkee/2018/04/12/github-ssh/"/>
-    <id>https://github.com/annkee/2018/04/12/github-ssh/</id>
-    <published>2018-04-11T16:00:00.000Z</published>
-    <updated>2019-07-08T10:37:11.129Z</updated>
-    
-    <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/5841000-bbe9448274a8f8e9.jpg" alt="github" style="width: 100%"></p><a id="more"></a><h1 id="git命令窗口输入"><a href="#git命令窗口输入" class="headerlink" title="git命令窗口输入"></a>git命令窗口输入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;wangan058&quot;</span><br><span class="line">$ git config --global user.email &quot;wangan058@163.com&quot;</span><br><span class="line">$ ssh-keygen -t rsa -C &quot;wangan058@163.com&quot;</span><br></pre></td></tr></table></figure><p>然后生成一个C:\Users\annkee(你的用户目录)\.ssh路径，打开id_rsa.pub文件，复制全部粘贴到远端的github上的ssh key 里面。</p><p>测试：<br><code>$ ssh -T git@github.com</code></p><p>出现:<code>Hi annkee! You&#39;ve successfully authenticated, but GitHub does not provide shell access.sh</code> 说明正常</p><h1 id="在你init过的路径下进入“-git目录”，打开“config”文件，修改url为："><a href="#在你init过的路径下进入“-git目录”，打开“config”文件，修改url为：" class="headerlink" title="在你init过的路径下进入“.git目录”，打开“config”文件，修改url为："></a>在你init过的路径下进入“.git目录”，打开“config”文件，修改url为：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url = git@github.com:annkee/mobile-scm.git</span><br><span class="line">fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure><p>把<code>https://github.com/</code> 替换为 <a href="mailto:git@github.com">git@github.com</a>: 就行了</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://blog.annkee.top/images/5841000-bbe9448274a8f8e9.jpg&quot; alt=&quot;github&quot; style=&quot;width: 100%&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="github" scheme="https://github.com/annkee/categories/github/"/>
-    
-    
-      <category term="github" scheme="https://github.com/annkee/tags/github/"/>
     
   </entry>
   

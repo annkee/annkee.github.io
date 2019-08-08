@@ -137,11 +137,11 @@
 <meta name="keywords" content="github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github配置ssh">
-<meta property="og:url" content="https://github.com/annkee/2018/04/12/github-ssh/index.html">
+<meta property="og:url" content="https://github.com/annkee/2019/08/08/github-ssh/index.html">
 <meta property="og:site_name" content="annkee">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://blog.annkee.top/images/5841000-bbe9448274a8f8e9.jpg">
-<meta property="og:updated_time" content="2019-07-08T10:37:11.129Z">
+<meta property="og:updated_time" content="2019-08-08T01:15:53.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github配置ssh">
 <meta name="twitter:image" content="https://blog.annkee.top/images/5841000-bbe9448274a8f8e9.jpg">
@@ -174,7 +174,7 @@
 
 
 
-  <link rel="canonical" href="https://github.com/annkee/2018/04/12/github-ssh/"/>
+  <link rel="canonical" href="https://github.com/annkee/2019/08/08/github-ssh/"/>
 
 
 
@@ -341,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/annkee/2018/04/12/github-ssh/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/annkee/2019/08/08/github-ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="annkee">
@@ -370,8 +370,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-12T00:00:00+08:00">
-                2018-04-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T00:00:00+08:00">
+                2019-08-08
               </time>
             
 
@@ -412,8 +412,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/04/12/github-ssh/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/04/12/github-ssh/" itemprop="commentsCount"></span>
+                <a href="/2019/08/08/github-ssh/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2019/08/08/github-ssh/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -421,7 +421,7 @@
 
           
           
-             <span id="/2018/04/12/github-ssh/" class="leancloud_visitors" data-flag-title="github配置ssh">
+             <span id="/2019/08/08/github-ssh/" class="leancloud_visitors" data-flag-title="github配置ssh">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +448,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  150
+                  707
                 </span>
               
 
@@ -475,6 +475,18 @@
       
         <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://blog.annkee.top/images/5841000-bbe9448274a8f8e9.jpg" alt="github" style="width: 100%"></p>
 <a id="more"></a>
+<h1 id="centos7-gitlab安装"><a href="#centos7-gitlab安装" class="headerlink" title="centos7 gitlab安装"></a>centos7 gitlab安装</h1><h2 id="安装SSH服务，在系统防火墙中打开HTTP和SSH访问"><a href="#安装SSH服务，在系统防火墙中打开HTTP和SSH访问" class="headerlink" title="安装SSH服务，在系统防火墙中打开HTTP和SSH访问"></a>安装SSH服务，在系统防火墙中打开HTTP和SSH访问</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y curl policycoreutils-python openssh-server #安装ssh</span><br><span class="line">sudo systemctl enable sshd #设为开机启动</span><br><span class="line">sudo systemctl start sshd #启动</span><br><span class="line">sudo firewall-cmd --permanent --add-service=http #打开HTTP</span><br><span class="line">sudo systemctl reload firewalld #重启，使防火墙修改生效</span><br></pre></td></tr></table></figure>
+<h2 id="安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）"><a href="#安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）" class="headerlink" title="安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）"></a>安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install postfix #装Postfix以发送通知邮件</span><br><span class="line">sudo systemctl enable postfix #设为开机启动</span><br><span class="line">sudo systemctl start postfix #启动</span><br></pre></td></tr></table></figure>
+<h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><p>下载地址： <a href="https://packages.gitlab.com/gitlab/gitlab-ce" target="_blank" rel="noopener">https://packages.gitlab.com/gitlab/gitlab-ce</a></p>
+<p>根据自己需要进行版本选择。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>sudo EXTERNAL_URL=&quot;http://ip:端口&quot;=rpm -i rpm包</code></p>
+<p>注意：端口不要和现有的冲突</p>
+<h2 id="查看配置文件"><a href="#查看配置文件" class="headerlink" title="查看配置文件"></a>查看配置文件</h2><p><code>vi /etc/gitlab/gitlab.rb</code></p>
+<p>主要看unicorn[‘port’]=8079(端口不要冲突)</p>
+<h2 id="重启配置"><a href="#重启配置" class="headerlink" title="重启配置"></a>重启配置</h2><p><code>gitlab-ctl reconfigure</code></p>
+<h2 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone= public --query-port=8079/tcp #查看</span><br><span class="line">firewall-cmd --zone=public --add-port=8079/tcp --permanent    #--permanent永久生效，没有此参数重启后失效</span><br><span class="line">firewall-cmd --reload #修改生效</span><br></pre></td></tr></table></figure>
+<h3 id="相关命令："><a href="#相关命令：" class="headerlink" title="相关命令："></a>相关命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service #启动一个服务</span><br><span class="line">systemctl stop firewalld.service #关闭一个服务</span><br><span class="line">systemctl restart firewalld.service #重启一个服务</span><br><span class="line">systemctl status firewalld.service #显示一个服务的状态</span><br><span class="line">systemctl enable firewalld.service #在开机时启用一个服务</span><br><span class="line">systemctl disable firewalld.service #在开机时禁用一个服务</span><br><span class="line">systemctl is-enabled firewalld.service #查看服务是否开机启动</span><br><span class="line">systemctl list-unit-files|grep enabled #查看已启动的服务列表</span><br><span class="line">systemctl --failed #查看启动失败的服务列表</span><br><span class="line"></span><br><span class="line">firewall-cmd --version #查看版本</span><br><span class="line">firewall-cmd --help #查看帮助</span><br><span class="line">firewall-cmd --state #显示状态</span><br><span class="line">firewall-cmd --zone=public --list-ports #查看所有打开的端口</span><br><span class="line">firewall-cmd --reload #更新防火墙规则</span><br><span class="line">firewall-cmd --get-active-zones #查看区域信息</span><br><span class="line">firewall-cmd --get-zone-of-interface=eth0 #查看指定接口所属区域</span><br><span class="line">firewall-cmd --panic-on #拒绝所有包</span><br><span class="line">firewall-cmd --panic-off #取消拒绝状态</span><br><span class="line">firewall-cmd --query-panic #查看是否拒绝</span><br></pre></td></tr></table></figure>
+<h2 id="gitlab相关命令"><a href="#gitlab相关命令" class="headerlink" title="gitlab相关命令"></a>gitlab相关命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl status #查看状态</span><br><span class="line">sudo gitlab-ctl start # 启动Gitlab所有组件</span><br><span class="line">sudo gitlab-ctl stop # 停止Gitlab所有组件</span><br><span class="line">sudo gitlab-ctl restart # 重启Gitlab所有组件</span><br></pre></td></tr></table></figure>
 <h1 id="git命令窗口输入"><a href="#git命令窗口输入" class="headerlink" title="git命令窗口输入"></a>git命令窗口输入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;wangan058&quot;</span><br><span class="line">$ git config --global user.email &quot;wangan058@163.com&quot;</span><br><span class="line">$ ssh-keygen -t rsa -C &quot;wangan058@163.com&quot;</span><br></pre></td></tr></table></figure>
 <p>然后生成一个C:\Users\annkee(你的用户目录)\.ssh路径，打开id_rsa.pub文件，复制全部粘贴到远端的github上的ssh key 里面。</p>
 <p>测试：<br><code>$ ssh -T git@github.com</code></p>
@@ -532,18 +544,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/12/live2d/" rel="prev" title="hexo增加live2d看板宠物动画">
-                <i class="fa fa-chevron-left"></i> hexo增加live2d看板宠物动画
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/05/k8s/" rel="next" title="k8s简单了解">
-                k8s简单了解 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/06/sublime-text3/" rel="next" title="sublime text 3安装格式化json的插件">
+                sublime text 3安装格式化json的插件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -764,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git命令窗口输入"><span class="nav-number">1.</span> <span class="nav-text">git命令窗口输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在你init过的路径下进入“-git目录”，打开“config”文件，修改url为："><span class="nav-number">2.</span> <span class="nav-text">在你init过的路径下进入“.git目录”，打开“config”文件，修改url为：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#centos7-gitlab安装"><span class="nav-number">1.</span> <span class="nav-text">centos7 gitlab安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SSH服务，在系统防火墙中打开HTTP和SSH访问"><span class="nav-number">1.1.</span> <span class="nav-text">安装SSH服务，在系统防火墙中打开HTTP和SSH访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）"><span class="nav-number">1.2.</span> <span class="nav-text">安装Postfix，发送通知电子邮件（邀请团队成员的时候用得上）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装包"><span class="nav-number">1.3.</span> <span class="nav-text">下载安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看配置文件"><span class="nav-number">1.5.</span> <span class="nav-text">查看配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启配置"><span class="nav-number">1.6.</span> <span class="nav-text">重启配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防火墙设置"><span class="nav-number">1.7.</span> <span class="nav-text">防火墙设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关命令："><span class="nav-number">1.7.1.</span> <span class="nav-text">相关命令：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitlab相关命令"><span class="nav-number">1.8.</span> <span class="nav-text">gitlab相关命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git命令窗口输入"><span class="nav-number">2.</span> <span class="nav-text">git命令窗口输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在你init过的路径下进入“-git目录”，打开“config”文件，修改url为："><span class="nav-number">3.</span> <span class="nav-text">在你init过的路径下进入“.git目录”，打开“config”文件，修改url为：</span></a></li></ol></div>
             
 
           </div>
